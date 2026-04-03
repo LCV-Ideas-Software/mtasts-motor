@@ -13,31 +13,5 @@
       "database_name": "bigdata_db",
       "database_id": "00000000-0000-0000-0000-000000000000"
     }
-  ],
-  "routes": [
-    {
-      "pattern": "mta-sts.cardozovargas.adv.br",
-      "custom_domain": true
-    },
-    {
-      "pattern": "mta-sts.cardozovargas.com",
-      "custom_domain": true
-    },
-    {
-      "pattern": "mta-sts.lcv.eng.br",
-      "custom_domain": true
-    },
-    {
-      "pattern": "mta-sts.lcvmail.com",
-      "custom_domain": true
-    },
-    {
-      "pattern": "mta-sts.lcvmasker.com",
-      "custom_domain": true
-    },
-    {
-      "pattern": "mta-sts.lcv.rio.br",
-      "custom_domain": true
-    }
   ]
 }
