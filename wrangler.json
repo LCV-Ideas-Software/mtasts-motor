@@ -5,7 +5,13 @@
   "compatibility_date": "2026-04-02",
   "workers_dev": true,
   "observability": {
-    "enabled": true
+    "enabled": true,
+    "head_sampling_rate": 1,
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "head_sampling_rate": 1
+    }
   },
   "d1_databases": [
     {
