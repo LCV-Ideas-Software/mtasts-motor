@@ -1,5 +1,15 @@
 # Changelog — MTA-STS Motor
 
+## [v02.00.03] - 2026-04-10
+### Adicionado
+- **Biome 2.x**: lint + format com organizeImports
+- **wrangler local**: adicionado ao devDependencies (antes dependia de instalação global)
+
+### Alterado
+- **ESM**: module type mudado de commonjs para module
+- **@cloudflare/workers-types**: atualizado para 4.20260411
+- **Dependabot groups**: @vitest/* e @biomejs/* adicionados
+
 ## [v02.00.02] — 2026-04-06
 ### Alterado
 - **Full Rename**: Worker renomeado de `mta-sts-server` para `mtasts-motor` em `wrangler.json`, `package.json`, `README.md`, código fonte e repositório GitHub.
