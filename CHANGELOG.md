@@ -1,5 +1,9 @@
 # Changelog — MTA-STS Motor
 
+## [v02.00.04] - 2026-04-11
+### Alterado
+- **Log prefix**: `console.error` prefixado com `[mtasts-motor]` para observabilidade unificada.
+
 ## [v02.00.03] - 2026-04-10
 ### Adicionado
 - **Biome 2.x**: lint + format com organizeImports
