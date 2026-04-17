@@ -1,5 +1,23 @@
 # Changelog — MTA-STS Motor
 
+## [v02.00.07] - 2026-04-17
+### Alterado
+- `wrangler.json` passou a definir `workers_dev: false`, removendo a exposição do Worker em `mtasts-motor.lcv.workers.dev`.
+### Motivação
+- O estado ao vivo da Cloudflare confirmou 11 custom domains ativos (`mta-sts.*`) apontando para o `mtasts-motor` e nenhum route clássico, então o `workers.dev` deixou de ser necessário como superfície pública do runtime.
+
+## [v02.00.06] - 2026-04-17
+### Corrigido
+- O handler agora rejeita métodos diferentes de `GET`/`HEAD` com `405`, remove a exposição desnecessária do `APP_VERSION` em respostas `404` e deixa de enviar `Cache-Control` próprio, em conformidade com a diretiva global do workspace.
+- `README.md` e `SECURITY.md` foram realinhados ao comportamento e aos controles realmente verificáveis do repositório, removendo deriva documental sobre TLS-RPT, CodeQL e branch protection.
+### Adicionado
+- `src/index.test.ts` cobre os caminhos `405`, `404`, `400`, `404 sem policy`, `200` e `500`, reduzindo risco de regressão silenciosa no Worker.
+- O workflow `Deploy` passou a executar `npm audit --audit-level=high`, `npm run lint`, `npm run typecheck` e `npm test` antes do deploy, usando o `wrangler` versionado no próprio repositório.
+### Alterado
+- Tooling atualizado: `@biomejs/biome` `2.4.11 -> 2.4.12`, `@cloudflare/workers-types` `4.20260411.1 -> 4.20260417.1`, `typescript` `6.0.2 -> 6.0.3`, `wrangler` `4.81.1 -> 4.83.0` e `vitest` `4.1.4` adicionado.
+### Motivação
+- Fechar fragilidades reais de pipeline, documentação e superfície HTTP identificadas na auditoria rigorosa do `mtasts-motor`.
+
 ## [v02.00.05] - 2026-04-17
 ### Alterado
 - `wrangler.json` passou a declarar explicitamente `observability.logs.enabled = true`, `observability.logs.invocation_logs = true` e `observability.traces.enabled = true`.

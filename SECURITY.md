@@ -23,11 +23,12 @@ We will acknowledge your report within 24 hours and work to resolve the issue pr
 
 ## Security Measures
 
-This repository employs:
-- **Code Scanning (CodeQL)**: Automated static analysis on all commits
-- **Dependency Scanning (Dependabot)**: Automated dependency vulnerability detection
-- **Secret Scanning**: Detection and remediation of exposed secrets
-- **Branch Protection**: Required status checks before merge to main
+This repository currently relies on:
+- **Dependency Scanning (Dependabot)**: Automated dependency update proposals
+- **CI quality gates**: `npm audit`, lint, typecheck, tests, and deploy validation in GitHub Actions
+- **Manual review**: Security-sensitive changes should be reviewed before promotion to production
+
+Controls such as **CodeQL**, **secret scanning**, and **branch protection** depend on the GitHub plan and repository settings in effect for the private repository and should not be assumed enabled unless verified in the platform settings.
 
 ## Best Practices
 

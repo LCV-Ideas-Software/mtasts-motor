@@ -3,7 +3,7 @@
   "name": "mtasts-motor",
   "main": "src/index.ts",
   "compatibility_date": "2026-04-06",
-  "workers_dev": true,
+  "workers_dev": false,
   "observability": {
     "enabled": true,
     "head_sampling_rate": 1,

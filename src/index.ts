@@ -1,7 +1,7 @@
 // Módulo: mtasts-motor/src/index.ts
 // Descrição: Worker que intercepta subdomínios `mta-sts.*` e fornece dinamicamente políticas MTA-STS ativas conectadas via BIGDATA_DB.
 
-const APP_VERSION = 'APP v02.00.05';
+const APP_VERSION = 'APP v02.00.07';
 
 interface Env {
   BIGDATA_DB: D1Database;
@@ -11,8 +11,17 @@ export default {
   async fetch(request: Request, env: Env, _ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
+    if (request.method !== 'GET' && request.method !== 'HEAD') {
+      return new Response('Method Not Allowed', {
+        status: 405,
+        headers: {
+          Allow: 'GET, HEAD',
+        },
+      });
+    }
+
     if (url.pathname !== '/.well-known/mta-sts.txt') {
-      return new Response(`Not found - MTA-STS Policy Server ${APP_VERSION}`, { status: 404 });
+      return new Response('Not found', { status: 404 });
     }
 
     const hostParts = url.hostname.split('.');
@@ -40,13 +49,12 @@ export default {
         status: 200,
         headers: {
           'Content-Type': 'text/plain; charset=utf-8',
-          'Cache-Control': 'public, max-age=300',
         },
       });
     } catch (error) {
       // Compliance: tratamento rígido de exceções (no-explicit-any)
       const errMessage = error instanceof Error ? error.message : String(error);
-      console.error(`[mtasts-motor] ${errMessage}`);
+      console.error(`[mtasts-motor] ${APP_VERSION} ${errMessage}`);
       return new Response('Internal Server Error', { status: 500 });
     }
   },
