@@ -1,5 +1,13 @@
 # Changelog — MTA-STS Motor
 
+## [v02.00.05] - 2026-04-17
+### Alterado
+- `wrangler.json` passou a declarar explicitamente `observability.logs.enabled = true`, `observability.logs.invocation_logs = true` e `observability.traces.enabled = true`.
+- `src/index.ts` recebeu limpeza de lint/TypeScript (`template literal`, `optional chaining` e contexto `_ctx`) para manter o gate local verde no fechamento.
+### Motivação
+- Alinhar o baseline de telemetria Cloudflare do `mtasts-motor` ao padrão operacional do workspace.
+
+
 ## [v02.00.04] - 2026-04-11
 ### Alterado
 - **Log prefix**: `console.error` prefixado com `[mtasts-motor]` para observabilidade unificada.
