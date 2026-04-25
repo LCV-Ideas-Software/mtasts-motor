@@ -43,3 +43,7 @@ test-results/
 AGENTS.md
 GEMINI.md
 .github/copilot-instructions.md
+
+# Phase 1 audit additions: defensive (no schemas exist yet)
+schema.sql
+**/schema.sql
