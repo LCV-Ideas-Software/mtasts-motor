@@ -1,8 +1,10 @@
 # mtasts-motor
 
-[![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-or-later-blue.svg)](./LICENSE)
+[![status: stable](https://img.shields.io/badge/status-stable-brightgreen.svg)](#status)
+[![version](https://img.shields.io/github/v/release/lcv-leo/mtasts-motor.svg)](https://github.com/lcv-leo/mtasts-motor/releases)
 [![runtime: Cloudflare Worker](https://img.shields.io/badge/runtime-Cloudflare%20Worker-orange.svg)](https://workers.cloudflare.com/)
 [![D1 binding](https://img.shields.io/badge/storage-Cloudflare%20D1-blue.svg)](https://developers.cloudflare.com/d1/)
+[![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](./LICENSE)
 
 A Cloudflare Worker that serves dynamic [MTA-STS](https://datatracker.ietf.org/doc/html/rfc8461) policies from a Cloudflare D1 backing store. Designed to live behind the `mta-sts.<domain>` subdomain convention and respond to `GET /.well-known/mta-sts.txt`.
 
