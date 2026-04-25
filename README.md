@@ -1,22 +1,126 @@
 # mtasts-motor
 
-> Worker Cloudflare responsável por servir dinamicamente políticas de MTA-STS para os domínios do grupo a partir da tabela `mtasts_mta_sts_policies` no `BIGDATA_DB`.
+[![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-or-later-blue.svg)](./LICENSE)
+[![runtime: Cloudflare Worker](https://img.shields.io/badge/runtime-Cloudflare%20Worker-orange.svg)](https://workers.cloudflare.com/)
+[![D1 binding](https://img.shields.io/badge/storage-Cloudflare%20D1-blue.svg)](https://developers.cloudflare.com/d1/)
 
-## Ecossistema LCV Workspace
+A Cloudflare Worker that serves dynamic [MTA-STS](https://datatracker.ietf.org/doc/html/rfc8461) policies from a Cloudflare D1 backing store. Designed to live behind the `mta-sts.<domain>` subdomain convention and respond to `GET /.well-known/mta-sts.txt`.
 
-Este repositório faz parte do workspace global LCV / Reflexos da Alma e opera de modo integrado aos demais serviços.
+## What it does
 
-## Arquitetura & Governança
+[RFC 8461](https://datatracker.ietf.org/doc/html/rfc8461) (MTA-STS, "SMTP MTA Strict Transport Security") requires a sending mail server to fetch a policy file at `https://mta-sts.<recipient-domain>/.well-known/mta-sts.txt` to discover the recipient's enforced TLS posture. Most operators serve this as a static file — fine for a single domain, awkward for multi-domain operators who want a single deploy surface and DB-managed policy text.
 
-- **Cloudflare**: Implementado utilizando Workers/Pages, KV, D1, e integrações nativas como AI Gateway.
-- **Padrões de Qualidade**: Obedece estritamente às diretivas de `AGENTS.md` e regras de paridade contidas no `.ai/GEMINI.md` e `.github/copilot-instructions.md`.
-- **Yolo Mode & AI Automation**: O desenvolvimento deve priorizar o uso dos MCPs `ultrathink` e `code-reasoning` para planejamento.
+This Worker:
 
-## Superfície HTTP
+- Listens on `GET` / `HEAD` `/.well-known/mta-sts.txt` (other methods → `405`, other paths → `404`).
+- Resolves the recipient domain from the `mta-sts.<domain>` host header.
+- Looks the policy up in a D1 table `mtasts_mta_sts_policies(domain TEXT PRIMARY KEY, policy_text TEXT)`.
+- Returns the raw policy with `Content-Type: text/plain; charset=utf-8`. Cache headers are not set (Cloudflare-managed).
+- Restricts methods, scrubs error responses (no version disclosure), and rejects domains that have no row.
 
-- **Endpoint suportado**: `GET` e `HEAD` em `/.well-known/mta-sts.txt`
-- **Lookup de política**: resolve o domínio raiz a partir de `mta-sts.<dominio>` e consulta `mtasts_mta_sts_policies`
-- **Resposta**: `text/plain; charset=utf-8`
+## Architecture
 
----
-*Documentação gerada e sincronizada para o Workspace LCV.*
+```
+DNS:  mta-sts.example.com  CNAME  -> mtasts-motor.<account>.workers.dev (or custom domain)
+                                 |
+                                 v
+                         Cloudflare Worker (this repo)
+                                 |
+                                 v
+                          D1 binding: BIGDATA_DB
+                                 |
+                                 v
+              SELECT policy_text FROM mtasts_mta_sts_policies WHERE domain = ?
+```
+
+## Deploy your own fork
+
+You will need:
+- A Cloudflare account ([free tier](https://www.cloudflare.com/plans/)) with Workers + D1 enabled.
+- The Cloudflare CLI [`wrangler`](https://developers.cloudflare.com/workers/wrangler/) (installed locally OR used via `npx`).
+- Node.js 20+.
+
+### 1. Clone + install
+
+```bash
+git clone https://github.com/lcv-leo/mtasts-motor.git
+cd mtasts-motor
+npm ci
+```
+
+### 2. Create your D1 database and apply schema
+
+```bash
+npx wrangler d1 create bigdata_db
+# wrangler outputs:
+#   database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+
+npx wrangler d1 execute bigdata_db --remote --command "
+  CREATE TABLE IF NOT EXISTS mtasts_mta_sts_policies (
+    domain TEXT PRIMARY KEY,
+    policy_text TEXT NOT NULL
+  );
+"
+```
+
+### 3. Wire the database_id into wrangler.json
+
+`wrangler.json` ships with a placeholder `00000000-0000-0000-0000-000000000000`. Replace it with the ID from step 2:
+
+```jsonc
+{
+  "d1_databases": [
+    {
+      "binding": "BIGDATA_DB",
+      "database_name": "bigdata_db",
+      "database_id": "<your-d1-id-from-step-2>"
+    }
+  ]
+}
+```
+
+### 4. Insert at least one policy
+
+```bash
+npx wrangler d1 execute bigdata_db --remote --command "
+  INSERT INTO mtasts_mta_sts_policies (domain, policy_text) VALUES
+    ('example.com', 'version: STSv1
+mode: enforce
+mx: mail.example.com
+max_age: 86400');
+"
+```
+
+### 5. Deploy
+
+```bash
+npx wrangler deploy
+```
+
+### 6. Bind a custom domain
+
+For each domain whose policy this Worker should serve, configure a Cloudflare custom domain on the Worker for `mta-sts.<that-domain>`. The Worker host header dispatches per-domain automatically.
+
+## CI deploy (this repo)
+
+This repo's [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `lint → typecheck → test → npm audit (high) → wrangler deploy` on every push to `main`. The deploy step substitutes the placeholder `database_id` in `wrangler.json` from a `D1_DATABASE_ID` GitHub Actions secret before invoking wrangler — keeping the literal D1 ID out of the public source tree.
+
+For your fork, the alternatives are:
+- Edit `wrangler.json` directly (commit your real ID — fine for private forks).
+- Replicate the secret-injection pattern: set a `D1_DATABASE_ID` repo secret, keep the placeholder in committed `wrangler.json`.
+
+## Repository conventions
+
+- **License**: [AGPL-3.0-or-later](./LICENSE). Network-service trigger applies — running a modified fork as a service obligates you to publish the modifications.
+- **Security disclosure**: see [SECURITY.md](./SECURITY.md).
+- **Changelog**: [CHANGELOG.md](./CHANGELOG.md).
+- **Sponsorship**: see the repo's `Sponsor` button or [GitHub Sponsors profile](https://github.com/sponsors/lcv-leo).
+- **Action pinning**: all GitHub Actions are pinned by full SHA per supply-chain hardening baseline.
+
+## License
+
+Copyright (C) 2026 Leonardo Cardozo Vargas.
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU Affero General Public License for more details. The full license text is at [LICENSE](./LICENSE).

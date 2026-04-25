@@ -42,6 +42,17 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Inject D1 database_id from secret
+        run: |
+          if [ -z "${D1_DATABASE_ID:-}" ]; then
+            echo "::error::D1_DATABASE_ID secret is not set" >&2
+            exit 1
+          fi
+          sed -i "s/00000000-0000-0000-0000-000000000000/${D1_DATABASE_ID}/g" wrangler.json
+          grep -q "${D1_DATABASE_ID}" wrangler.json || { echo "::error::Substitution failed" >&2; exit 1; }
+        env:
+          D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
+
       - name: Deploy Worker
         run: npx --no-install wrangler deploy
         env:

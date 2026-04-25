@@ -3,6 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "Cloudflare Worker that serves dynamic MTA-STS policies for mta-sts.* subdomains, sourcing active policy text from a D1 binding.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Leonardo Cardozo Vargas (lcv-leo)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lcv-leo/mtasts-motor.git"
+  },
+  "homepage": "https://github.com/lcv-leo/mtasts-motor#readme",
+  "bugs": {
+    "url": "https://github.com/lcv-leo/mtasts-motor/issues"
+  },
   "scripts": {
     "format": "biome format --write src",
     "lint": "biome check src",
