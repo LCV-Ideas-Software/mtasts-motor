@@ -1,16 +1,27 @@
 <p align="center">
-  <img src=".github/assets/lcv-ideas-software-logo.svg" alt="LCV Ideas &amp; Software" width="220">
+  <img src=".github/assets/lcv-ideas-software-logo.svg" alt="LCV Ideas &amp; Software" width="520" />
 </p>
 
 # mtasts-motor
 
 [![status: stable](https://img.shields.io/badge/status-stable-brightgreen.svg)](#status)
-[![version](https://img.shields.io/github/v/release/lcv-leo/mtasts-motor.svg)](https://github.com/lcv-leo/mtasts-motor/releases)
+[![version](https://img.shields.io/github/v/release/LCV-Ideas-Software/mtasts-motor.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/releases)
 [![runtime: Cloudflare Worker](https://img.shields.io/badge/runtime-Cloudflare%20Worker-orange.svg)](https://workers.cloudflare.com/)
 [![D1 binding](https://img.shields.io/badge/storage-Cloudflare%20D1-blue.svg)](https://developers.cloudflare.com/d1/)
 [![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](./LICENSE)
 
 A Cloudflare Worker that serves dynamic [MTA-STS](https://datatracker.ietf.org/doc/html/rfc8461) policies from a Cloudflare D1 backing store. Designed to live behind the `mta-sts.<domain>` subdomain convention and respond to `GET /.well-known/mta-sts.txt`.
+
+**Status.** Stable. Current release: **v02.00.09**. See [CHANGELOG.md](./CHANGELOG.md) for the full release history.
+
+The version history at a glance:
+
+| Release | Scope |
+|---|---|
+| **`v02.00.09`** | **README organizational standardization.** Adopted the shared repository README opening pattern, corrected public release and clone links to the organization, surfaced the top-level version-history table, and kept the GitHub Sponsors link on `lcv-leo` by explicit beneficiary decision. |
+| **`v02.00.08`** | **Publication completeness and Pages modernization.** Added `NOTICE`, `THIRDPARTY.md`, and migrated fully to the current GitHub Pages artifact-deployment model. |
+| **`v02.00.07`** | **Pre-modernization stable line.** Baseline immediately before the publication and documentation completion pass. |
+| **`Security Publication Hardening`** | **Public repo hygiene.** Hardened ignore rules and package contents so local memories, secrets, and runtime artifacts do not leak into public distribution. |
 
 ## What it does
 
@@ -49,7 +60,7 @@ You will need:
 ### 1. Clone + install
 
 ```bash
-git clone https://github.com/lcv-leo/mtasts-motor.git
+git clone https://github.com/LCV-Ideas-Software/mtasts-motor.git
 cd mtasts-motor
 npm ci
 ```
