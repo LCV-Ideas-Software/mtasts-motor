@@ -139,7 +139,7 @@ For your fork, the alternatives are:
 - **License**: [AGPL-3.0-or-later](./LICENSE). Network-service trigger applies — running a modified fork as a service obligates you to publish the modifications.
 - **Security disclosure**: see [SECURITY.md](./SECURITY.md).
 - **Changelog**: [CHANGELOG.md](./CHANGELOG.md).
-- **Sponsorship**: see the repo's `Sponsor` button or [GitHub Sponsors profile](https://github.com/sponsors/LCV-Ideas-Software).
+- **Sponsorship**: see the repo's `Sponsor` button or [central sponsor page](https://www.lcv.dev/sponsor).
 - **Action pinning**: all GitHub Actions are pinned by full SHA per supply-chain hardening baseline.
 
 ## License
