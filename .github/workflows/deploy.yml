@@ -29,7 +29,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Security audit
-        run: npm audit --audit-level=high
+        run: npm audit --audit-level=high --registry=https://registry.npmjs.org/
       - name: Lint
         run: npm run lint
       - name: Typecheck
@@ -55,7 +55,7 @@ jobs:
         env:
           D1_DATABASE_ID: ${{ secrets.D1_DATABASE_ID }}
       - name: Deploy Worker
-        run: npx --no-install wrangler deploy
+        run: npx --registry=https://registry.npmjs.org/ --no-install wrangler deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets['CLOUDFLARE_API_TOKEN'] }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets['CLOUDFLARE_ACCOUNT_ID'] }}
