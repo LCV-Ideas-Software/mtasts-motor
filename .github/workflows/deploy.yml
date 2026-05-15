@@ -32,6 +32,8 @@ jobs:
         run: npm audit --audit-level=high --registry=https://registry.npmjs.org/
       - name: Lint
         run: npm run lint
+      - name: Biome (lint + format)
+        run: npm run biome
       - name: Typecheck
         run: npm run typecheck
       - name: Test

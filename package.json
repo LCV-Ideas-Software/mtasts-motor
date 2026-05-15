@@ -1,6 +1,6 @@
 {
   "name": "mtasts-motor",
-  "version": "2.0.7",
+  "version": "2.0.12",
   "private": true,
   "type": "module",
   "description": "Cloudflare Worker that serves dynamic MTA-STS policies for mta-sts.* subdomains, sourcing active policy text from a D1 binding.",
@@ -17,6 +17,8 @@
   "scripts": {
     "format": "biome format --write src",
     "lint": "biome check src",
+    "biome": "biome check .",
+    "biome:write": "biome check --write .",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
     "format:public": "prettier --write \"**/index.html\"",

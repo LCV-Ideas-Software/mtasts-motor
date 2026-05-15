@@ -2,6 +2,25 @@
 
 ## [Unreleased]
 
+## [v02.00.12] - 2026-05-15
+
+**Patch — 4-gate quality directive compliance (eslint + biome + prettier + cross-review).** Workspace directive 2026-05-15: every code change must pass eslint + biome + prettier + cross-review before Commit & Sync / tag / release / deploy / publish.
+
+### Adicionado
+
+- `npm run biome` (biome check .) + `npm run biome:write` (biome check --write .) scripts.
+- `deploy.yml` workflow runs `npm run biome` after `npm run lint` and before `npm run typecheck`/`npm test`.
+
+### Configurado
+
+- `biome.json` schema URL `2.4.11` → `2.4.14` (installed CLI version).
+- `biome.json` `files.includes` adicionado: scopes biome para `src/**/*.{ts,js}`; exclui `dist/`, `build/`, `.wrangler/`, `node_modules/`, `coverage/`. Sem scope explícito biome estava varrendo o `wrangler.json`.
+
+### Alterado
+
+- 4 source files reformatted by `biome check --write .` (cosmetic only).
+- APP_VERSION + package.json synced `v02.00.11` → `v02.00.12` (test fixture in `src/index.test.ts:107` updated em paridade).
+
 ## [v02.00.11] - 2026-05-09
 ### Alterado
 - **`site/index.html`** — iframe `github.com/sponsors/.../card` (caixa branca cross-origin) substituído por link card dark navy com ❤ pink + meta cyan + seta animada; card movido para DEPOIS dos botões (lcv.dev/sponsor primário, GitHub Sponsors alternativa). Companion ship Phase 3 (12 repos). APP_VERSION em `src/index.ts` bumpada + test fixture em paridade.
