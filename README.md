@@ -16,14 +16,14 @@ A Cloudflare Worker that serves dynamic [MTA-STS](https://datatracker.ietf.org/d
 
 The version history at a glance:
 
-| Release | Scope |
-|---|---|
-| **`v02.00.11`** | **Site sponsor card iteration.** `site/index.html` GitHub Sponsors iframe (caixa branca cross-origin) substituído por link card dark navy com ❤ pink + meta cyan + seta animada; card movido para DEPOIS dos botões (lcv.dev/sponsor primário, GitHub Sponsors alternativa). Companion ship Phase 3 (12 repos). |
-| **`v02.00.10`** | **Site visual identity refresh.** `site/index.html` (GitHub Pages) reskinneada para a nova identidade dark-first navy/cyan da org LCV (`#050b18`/`#38bdf8`/`#34d399`, gradientes radiais, glow shadows, gradient text no h1). Coordinated Phase 2 companion ship (calculadora, oraculo, astrologo, admin, mainsite, maestro, mtasts). APP_VERSION bumpada em src/index.ts + test fixture em paridade. Sem mudança no app runtime. |
-| **`v02.00.09`** | **README organizational standardization.** Adopted the shared repository README opening pattern, corrected public release and clone links to the organization, surfaced the top-level version-history table, and kept the GitHub Sponsors link on `lcv-leo` by explicit beneficiary decision. |
-| **`v02.00.08`** | **Publication completeness and Pages modernization.** Added `NOTICE`, `THIRDPARTY.md`, and migrated fully to the current GitHub Pages artifact-deployment model. |
-| **`v02.00.07`** | **Pre-modernization stable line.** Baseline immediately before the publication and documentation completion pass. |
-| **`Security Publication Hardening`** | **Public repo hygiene.** Hardened ignore rules and package contents so local memories, secrets, and runtime artifacts do not leak into public distribution. |
+| Release                              | Scope                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **`v02.00.11`**                      | **Site sponsor card iteration.** `site/index.html` GitHub Sponsors iframe (caixa branca cross-origin) substituído por link card dark navy com ❤ pink + meta cyan + seta animada; card movido para DEPOIS dos botões (lcv.dev/sponsor primário, GitHub Sponsors alternativa). Companion ship Phase 3 (12 repos).                                                                                                                   |
+| **`v02.00.10`**                      | **Site visual identity refresh.** `site/index.html` (GitHub Pages) reskinneada para a nova identidade dark-first navy/cyan da org LCV (`#050b18`/`#38bdf8`/`#34d399`, gradientes radiais, glow shadows, gradient text no h1). Coordinated Phase 2 companion ship (calculadora, oraculo, astrologo, admin, mainsite, maestro, mtasts). APP_VERSION bumpada em src/index.ts + test fixture em paridade. Sem mudança no app runtime. |
+| **`v02.00.09`**                      | **README organizational standardization.** Adopted the shared repository README opening pattern, corrected public release and clone links to the organization, surfaced the top-level version-history table, and kept the GitHub Sponsors link on `lcv-leo` by explicit beneficiary decision.                                                                                                                                     |
+| **`v02.00.08`**                      | **Publication completeness and Pages modernization.** Added `NOTICE`, `THIRDPARTY.md`, and migrated fully to the current GitHub Pages artifact-deployment model.                                                                                                                                                                                                                                                                  |
+| **`v02.00.07`**                      | **Pre-modernization stable line.** Baseline immediately before the publication and documentation completion pass.                                                                                                                                                                                                                                                                                                                 |
+| **`Security Publication Hardening`** | **Public repo hygiene.** Hardened ignore rules and package contents so local memories, secrets, and runtime artifacts do not leak into public distribution.                                                                                                                                                                                                                                                                       |
 
 ## What it does
 
@@ -55,6 +55,7 @@ DNS:  mta-sts.example.com  CNAME  -> mtasts-motor.<account>.workers.dev (or cust
 ## Deploy your own fork
 
 You will need:
+
 - A Cloudflare account ([free tier](https://www.cloudflare.com/plans/)) with Workers + D1 enabled.
 - The Cloudflare CLI [`wrangler`](https://developers.cloudflare.com/workers/wrangler/) (installed locally OR used via `npx`).
 - Node.js 20+.
@@ -87,9 +88,9 @@ Take note of the `database_id` value — you need it for step 3 BEFORE any other
     {
       "binding": "BIGDATA_DB",
       "database_name": "bigdata_db",
-      "database_id": "<your-d1-id-from-step-2>"
-    }
-  ]
+      "database_id": "<your-d1-id-from-step-2>",
+    },
+  ],
 }
 ```
 
@@ -133,6 +134,7 @@ For each domain whose policy this Worker should serve, configure a Cloudflare cu
 This repo's [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `lint → typecheck → test → npm audit (high) → wrangler deploy` on every push to `main`. The deploy step substitutes the placeholder `database_id` in `wrangler.json` from a `D1_DATABASE_ID` GitHub Actions secret before invoking wrangler — keeping the literal D1 ID out of the public source tree.
 
 For your fork, the alternatives are:
+
 - Edit `wrangler.json` directly (commit your real ID — fine for private forks).
 - Replicate the secret-injection pattern: set a `D1_DATABASE_ID` repo secret, keep the placeholder in committed `wrangler.json`.
 
