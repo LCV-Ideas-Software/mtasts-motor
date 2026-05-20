@@ -20,7 +20,7 @@ The version history at a glance:
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`v02.00.11`**                      | **Site sponsor card iteration.** `site/index.html` GitHub Sponsors iframe (caixa branca cross-origin) substituído por link card dark navy com ❤ pink + meta cyan + seta animada; card movido para DEPOIS dos botões (lcv.dev/sponsor primário, GitHub Sponsors alternativa). Companion ship Phase 3 (12 repos).                                                                                                                   |
 | **`v02.00.10`**                      | **Site visual identity refresh.** `site/index.html` (GitHub Pages) reskinneada para a nova identidade dark-first navy/cyan da org LCV (`#050b18`/`#38bdf8`/`#34d399`, gradientes radiais, glow shadows, gradient text no h1). Coordinated Phase 2 companion ship (calculadora, oraculo, astrologo, admin, mainsite, maestro, mtasts). APP_VERSION bumpada em src/index.ts + test fixture em paridade. Sem mudança no app runtime. |
-| **`v02.00.09`**                      | **README organizational standardization.** Adopted the shared repository README opening pattern, corrected public release and clone links to the organization, surfaced the top-level version-history table, and kept the GitHub Sponsors link on `lcv-leo` by explicit beneficiary decision.                                                                                                                                     |
+| **`v02.00.09`**                      | **README organizational standardization.** Adopted the shared repository README opening pattern, corrected public release and clone links to the organization, surfaced the top-level version-history table, and kept the GitHub Sponsors link on `example-beneficiary` by explicit beneficiary decision.                                                                                                                                     |
 | **`v02.00.08`**                      | **Publication completeness and Pages modernization.** Added `NOTICE`, `THIRDPARTY.md`, and migrated fully to the current GitHub Pages artifact-deployment model.                                                                                                                                                                                                                                                                  |
 | **`v02.00.07`**                      | **Pre-modernization stable line.** Baseline immediately before the publication and documentation completion pass.                                                                                                                                                                                                                                                                                                                 |
 | **`Security Publication Hardening`** | **Public repo hygiene.** Hardened ignore rules and package contents so local memories, secrets, and runtime artifacts do not leak into public distribution.                                                                                                                                                                                                                                                                       |
@@ -71,7 +71,7 @@ npm ci
 ### 2. Create your D1 database
 
 ```bash
-npx wrangler d1 create bigdata_db
+npx wrangler d1 create example_db
 # wrangler outputs:
 #   database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
@@ -87,7 +87,7 @@ Take note of the `database_id` value — you need it for step 3 BEFORE any other
   "d1_databases": [
     {
       "binding": "BIGDATA_DB",
-      "database_name": "bigdata_db",
+      "database_name": "example_db",
       "database_id": "<your-d1-id-from-step-2>",
     },
   ],
@@ -99,7 +99,7 @@ Take note of the `database_id` value — you need it for step 3 BEFORE any other
 Now that `wrangler.json` has the real ID:
 
 ```bash
-npx wrangler d1 execute bigdata_db --remote --command "
+npx wrangler d1 execute example_db --remote --command "
   CREATE TABLE IF NOT EXISTS mtasts_mta_sts_policies (
     domain TEXT PRIMARY KEY,
     policy_text TEXT NOT NULL
@@ -110,7 +110,7 @@ npx wrangler d1 execute bigdata_db --remote --command "
 ### 5. Insert at least one policy
 
 ```bash
-npx wrangler d1 execute bigdata_db --remote --command "
+npx wrangler d1 execute example_db --remote --command "
   INSERT INTO mtasts_mta_sts_policies (domain, policy_text) VALUES
     ('example.com', 'version: STSv1
 mode: enforce
@@ -148,7 +148,7 @@ For your fork, the alternatives are:
 
 ## License
 
-Copyright (C) 2026 Leonardo Cardozo Vargas.
+Copyright (C) 2026 LCV Ideas & Software
 
 This program is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
