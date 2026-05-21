@@ -76,7 +76,6 @@
 ### Motivação
 - Alinhar o baseline de telemetria Cloudflare do `mtasts-motor` ao padrão operacional do workspace.
 
-
 ## [v02.00.04] - 2026-04-11
 ### Alterado
 - **Log prefix**: `console.error` prefixado com `[mtasts-motor]` para observabilidade unificada.
@@ -89,7 +88,7 @@
 ### Alterado
 - **ESM**: module type mudado de commonjs para module
 - **@cloudflare/workers-types**: atualizado para 4.20260411
-- **Dependabot groups**: @vitest/* e @biomejs/* adicionados
+- **Dependabot groups**: @vitest/*e @biomejs/* adicionados
 
 ## [v02.00.02] — 2026-04-06
 ### Alterado
@@ -97,7 +96,6 @@
 - **Compatibility Date**: `wrangler.json` atualizado para `2026-04-06`.
 ### Controle de versão
 - `mtasts-motor`: v02.00.01 → v02.00.02
-
 
 ## [v02.00.01] — 2026-04-06
 ### Alterado
