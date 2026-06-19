@@ -26,10 +26,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.0",
-    "@cloudflare/workers-types": "^4.20260617.1",
+    "@cloudflare/workers-types": "^4.20260619.1",
     "typescript": "^6.0.3",
     "vitest": "^4.1.9",
-    "wrangler": "^4.101.0",
+    "wrangler": "^4.102.0",
     "prettier": "^3.8.4"
   },
   "overrides": {
