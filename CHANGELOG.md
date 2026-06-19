@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [v02.00.13] - 2026-06-19
+
+**Patch — security: raise transitive `ws` override floor to clear the deploy audit gate.** The deploy `npm audit --audit-level=high` step began failing (exit 1) on a freshly-published advisory, GHSA-96hv-2xvq-fx4p (memory-exhaustion DoS in `ws` from tiny fragments and data chunks). `ws` is a transitive dependency pulled via `wrangler` → `miniflare`, which hard-pins the now-vulnerable patch; the existing `overrides` entry was holding it at the top of the affected range.
+
+### Alterado
+
+- `overrides.ws` raised to the first patched release of the line, clearing the advisory while staying within the same major. The deploy `npm audit --audit-level=high` gate is green again (0 vulnerabilities).
+- `APP_VERSION` (`src/index.ts`) + test fixture (`src/index.test.ts`) + `package.json` + README/SECURITY metadata synced to v02.00.13.
+
 ## [v02.00.12] - 2026-05-15
 
 **Patch — 4-gate quality directive compliance (eslint + biome + prettier + cross-review).** Workspace directive 2026-05-15: every code change must pass eslint + biome + prettier + cross-review before Commit & Sync / tag / release / deploy / publish.

@@ -1,6 +1,6 @@
 {
   "name": "mtasts-motor",
-  "version": "2.0.12",
+  "version": "2.0.13",
   "private": true,
   "type": "module",
   "description": "Cloudflare Worker that serves dynamic MTA-STS policies for mta-sts.* subdomains, sourcing active policy text from a D1 binding.",
@@ -33,7 +33,7 @@
     "prettier": "^3.8.4"
   },
   "overrides": {
-    "ws": "8.20.1",
+    "ws": "8.21.0",
     "esbuild": "0.28.1"
   }
 }
