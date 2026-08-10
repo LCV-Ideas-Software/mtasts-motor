@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 
+### Added
+
+- Governanca de trabalho sobre GitHub Projects, Issues e Discussions: quadro dedicado do repositorio, formularios de issue para Incident, Maintenance e Spike, atalhos para Discussions no seletor de issues, workflow `add-to-project` (inerte ate a organizacao definir `LCV_PROJECTS_APP_CLIENT_ID`) e o ritual de registro G1..G4 documentado para Claude Code e ChatGPT-Codex.
+
+
+## [Unreleased]
+
 ## [v02.00.13] - 2026-06-19
 
 **Patch — security: raise transitive `ws` override floor to clear the deploy audit gate.** The deploy `npm audit --audit-level=high` step began failing (exit 1) on a freshly-published advisory, GHSA-96hv-2xvq-fx4p (memory-exhaustion DoS in `ws` from tiny fragments and data chunks). `ws` is a transitive dependency pulled via `wrangler` → `miniflare`, which hard-pins the now-vulnerable patch; the existing `overrides` entry was holding it at the top of the affected range.
