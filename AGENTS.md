@@ -18,7 +18,7 @@ store. Source em `src/`; deploy exclusivamente via GitHub Actions.
 
 ```bash
 npm test
-npm run lint
+npm run biome
 npm run typecheck
 npm run format:public:check
 npm run projects:boundaries
