@@ -2,7 +2,7 @@
 
 ## Supported status
 
-Latest supported release: v02.00.13. The current main branch is also supported for security fixes until the next release is published.
+Current supported internal application version: APP v02.00.13. The protected `main` branch is the deployed and supported source of truth; this web app no longer creates GitHub Releases or tags.
 
 ## Reporting a vulnerability
 
@@ -17,14 +17,14 @@ If GitHub private vulnerability reporting is enabled for this repository, that c
 Please include:
 
 - affected repository, component, route, package, workflow, or public surface;
-- affected version, release tag, commit SHA, or deployment URL when known;
+- affected internal application version, commit SHA, or deployment URL when known;
 - impact and exploitability;
 - reproduction steps or a safe proof of concept, if available;
 - whether any credential, personal data, payment data, private editorial material, or operational secret may be involved.
 
 ## Scope
 
-In scope: application code, Workers/Pages functions, package publication, GitHub Actions, dependency and supply-chain configuration, repository publication boundaries, security documentation, and public service configuration documented in this repository.
+In scope: application code, Workers/Pages functions, GitHub Actions, dependency and supply-chain configuration, repository publication boundaries, security documentation, and public service configuration documented in this repository.
 
 Out of scope: social engineering, physical attacks, denial-of-service testing without prior written authorization, spam, automated noisy scanning, and reports that rely only on outdated browser or dependency versions without a concrete vulnerable path in this repository.
 
