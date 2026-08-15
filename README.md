@@ -80,7 +80,7 @@ npx wrangler d1 create example_db
 #   database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-Take note of the `database_id` value — you need it for step 3 before any other `wrangler d1` command can run, because `wrangler d1 execute` resolves the binding via `wrangler.json`.
+Take note of the `database_id` value — you need it for step 3 before configured remote commands such as `wrangler d1 execute` can resolve the binding through `wrangler.json`.
 
 ### 3. Wire the database_id into wrangler.json
 
