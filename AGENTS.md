@@ -26,11 +26,11 @@ npm run format:public:check
 ## Workspace Policy
 
 Follow the workspace-root `AGENTS.md` directives of the private workspace that
-hosts this checkout (not versioned in this public repository). In
-particular: no self-review in cross-review gates, `ultrabrain` plus
-`cross-review-v2` before substantive closure, `cross-review-v1` only as fallback
-for v2, `main` as the deployment branch, and Commit & Sync only after final
-audit when requested.
+hosts this checkout (not versioned in this public repository). In particular:
+no self-review in Cross Review; `ultrabrain` plus one completed Cross Review on
+the exact final SHA before the merge queue; never use a post-merge Cross Review
+as retroactive approval; `main` as the deployment branch; and Commit & Sync only
+after final audit when requested.
 
 ## Registro de trabalho (GitHub Projects, Issues e Discussions)
 
@@ -118,5 +118,6 @@ com desvios `Bloqueado` e `Descartado`.
 
 Issues, PRs e Discussions deste repositorio sao publicos e permanentes. Use placeholders
 (`proj-x`, `exemplo-projeto-000`, `exemplo.com`) no lugar de IDs de projeto de nuvem, nomes
-de banco, dominios e contas. Detalhe operacional sensivel vai para o quadro privado ou para
-`.github-private`.
+de banco, dominios e contas. O `database_id` do D1 versionado em `wrangler.json` e uma
+excecao explicita: ele e identificador de recurso, nao credencial. Detalhe operacional
+sensivel vai para o quadro privado ou para `.github-private`.

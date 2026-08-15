@@ -4,7 +4,18 @@
 
 ### Added
 
-- Governanca de trabalho sobre GitHub Projects, Issues e Discussions: quadro dedicado do repositorio, formularios de issue para Incident, Maintenance e Spike, atalhos para Discussions no seletor de issues, workflow `add-to-project` (inerte ate a organizacao definir `LCV_PROJECTS_APP_CLIENT_ID`; gatilho `pull_request_target` sem checkout nem execucao de codigo do PR, para alcancar PRs de fork com o secret do environment (cobertura de PRs do Dependabot nao e garantida por este gatilho: fica decidida por sonda na ativacao e, se necessario, por reconciliacao em evento confiavel), com excecao estreita e documentada do zizmor) e o ritual de registro G1..G4 versionado em `AGENTS.md` e `CLAUDE.md` para Claude Code e ChatGPT-Codex.
+- Governanca de trabalho sobre GitHub Projects, Issues e Discussions: quadro dedicado do repositorio, formularios de issue para Incident, Maintenance e Spike, atalhos para Discussions no seletor de issues, Auto-add nativo dos Projects e o ritual de registro G1..G4 versionado em `AGENTS.md` e `CLAUDE.md` para Claude Code e ChatGPT-Codex.
+
+### Changed
+
+- Workflows de seguranca e qualidade migrados para CodeQL, Zizmor Action, OpenSSF Scorecard e Dependency Review oficiais, fixados por SHA e com permissoes minimas. O CodeQL foi atualizado para v4.37.7, absorvendo o PR #151; o reusable Zizmor interno foi substituido pela Action oficial v0.6.2, supersedendo o PR #152.
+- Deploy do Worker migrado para `cloudflare/wrangler-action` v4.0.0. A Action reutiliza o Wrangler instalado pelo lockfile, e o `database_id` D1 autorizado passa a viver diretamente em `wrangler.json` como fonte de verdade.
+- Cooldown do Dependabot alinhado ao minimo de sete dias auditado pelo Zizmor; GitHub Actions continuam excluidas do cooldown para receber updates validados sem atraso.
+- Cross Review registrado explicitamente como gate pre-merge no SHA final, nunca como aprovacao retroativa pos-merge.
+
+### Removed
+
+- Native Auto-merge, Add to project e Auto-release customizados, seus validadores proprios, o gate SARIF paralelo do CodeQL, o reusable Zizmor interno, suppressions obsoletos e todas as declaracoes `permissions: write-all`.
 
 ## [v02.00.13] - 2026-06-19
 

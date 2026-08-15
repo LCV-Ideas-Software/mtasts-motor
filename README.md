@@ -5,7 +5,6 @@
 # mtasts-motor
 
 [![status: stable](https://img.shields.io/badge/status-stable-brightgreen.svg)](#status)
-[![release](https://img.shields.io/github/v/release/LCV-Ideas-Software/mtasts-motor?sort=semver)](https://github.com/LCV-Ideas-Software/mtasts-motor/releases)
 [![Deploy](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/deploy.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/deploy.yml)
 [![Pages](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/pages.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/pages.yml)
 [![CodeQL](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/codeql.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/codeql.yml)
@@ -15,11 +14,11 @@
 
 A Cloudflare Worker that serves dynamic [MTA-STS](https://datatracker.ietf.org/doc/html/rfc8461) policies from a Cloudflare D1 backing store. Designed to live behind the `mta-sts.<domain>` subdomain convention and respond to `GET /.well-known/mta-sts.txt`.
 
-**Status.** Stable. Current release: **v02.00.13**. See [CHANGELOG.md](./CHANGELOG.md) for the full release history.
+**Status.** Stable. Current internal application version: **APP v02.00.13**. Deployments follow the protected `main` branch; this web app no longer creates GitHub Releases or tags. See [CHANGELOG.md](./CHANGELOG.md) for the full version history.
 
 The version history at a glance:
 
-| Release                              | Scope                                                                                                                                                                                                                                                                                                                                                                                                                             |
+| Version                              | Scope                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **`v02.00.13`**                      | **Security patch.** Raised the transitive `ws` override floor to 8.21.0 to clear the high-severity memory-exhaustion DoS advisory (GHSA-96hv-2xvq-fx4p) that was failing the deploy `npm audit --audit-level=high` gate, and synchronized APP_VERSION/package metadata to v02.00.13.                                                                              |
 | **`v02.00.12`**                      | **4-gate quality directive compliance.** Added Biome scripts and deploy workflow coverage after eslint and before typecheck/test, scoped Biome to source files, and synchronized APP_VERSION/package metadata to v02.00.12.                                                                                                                                        |
@@ -81,11 +80,11 @@ npx wrangler d1 create example_db
 #   database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 ```
 
-Take note of the `database_id` value — you need it for step 3 BEFORE any other `wrangler d1` command can run, because `wrangler d1 execute` resolves the binding via `wrangler.json` and the shipped placeholder will fail the API call.
+Take note of the `database_id` value — you need it for step 3 before any other `wrangler d1` command can run, because `wrangler d1 execute` resolves the binding via `wrangler.json`.
 
 ### 3. Wire the database_id into wrangler.json
 
-`wrangler.json` ships with a placeholder `00000000-0000-0000-0000-000000000000`. Replace it with the ID from step 2:
+This repository versions the production D1 identifier because a `database_id` identifies a resource but does not authorize access to it. In a fork, replace the repository's current ID and database name with the resource you created in step 2:
 
 ```jsonc
 {
@@ -136,12 +135,12 @@ For each domain whose policy this Worker should serve, configure a Cloudflare cu
 
 ## CI deploy (this repo)
 
-This repo's [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `lint → typecheck → test → npm audit (high) → wrangler deploy` on every push to `main`. The deploy step substitutes the placeholder `database_id` in `wrangler.json` from a `D1_DATABASE_ID` GitHub Actions secret before invoking wrangler — keeping the literal D1 ID out of the public source tree.
+This repo's [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `npm audit (high) → lint → Biome → typecheck → test → public-format check` on every push to `main`, then deploys through the official Cloudflare Wrangler Action. The Action reuses the Wrangler version installed from `package-lock.json`; `wrangler.json` remains the versioned source of truth for the D1 binding.
 
 For your fork, the alternatives are:
 
-- Edit `wrangler.json` directly (commit your real ID — fine for private forks).
-- Replicate the secret-injection pattern: set a `D1_DATABASE_ID` repo secret, keep the placeholder in committed `wrangler.json`.
+- Replace the versioned D1 name and ID in `wrangler.json` with the resources owned by the fork.
+- Keep Cloudflare credentials in Actions secrets; a D1 identifier is not a credential and does not replace API authorization.
 
 ## Repository conventions
 

@@ -6,11 +6,11 @@ on:
   merge_group:
     types:
       - checks_requested
-# Politica enterprise (.github#150): sem write-all. Conjunto vazio no escopo do
+# Politica enterprise (Discussion #150): sem write-all. Conjunto vazio no escopo do
 # workflow e grant minimo declarado no job.
 permissions: {}
 concurrency:
-  group: dependency-review-${{ github.ref }}
+  group: dependency-review-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   dependency_review:
