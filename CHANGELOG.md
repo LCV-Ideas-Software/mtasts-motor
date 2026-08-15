@@ -12,6 +12,7 @@
 - Deploy do Worker migrado para `cloudflare/wrangler-action` v4.0.0. A Action reutiliza o Wrangler instalado pelo lockfile, e o `database_id` D1 autorizado passa a viver diretamente em `wrangler.json` como fonte de verdade.
 - Cooldown do Dependabot alinhado ao minimo de sete dias auditado pelo Zizmor; GitHub Actions continuam excluidas do cooldown para receber updates validados sem atraso.
 - Cross Review registrado explicitamente como gate pre-merge no SHA final, nunca como aprovacao retroativa pos-merge.
+- Concorrencia de CodeQL, Public Format e Zizmor isolada por SHA em `push`/`merge_group`, cancelando apenas revisoes de PR superadas; Scorecard tambem preserva cada execucao por SHA sem cancelamento.
 
 ### Removed
 
