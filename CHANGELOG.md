@@ -13,6 +13,7 @@
 - Cooldown do Dependabot alinhado ao minimo de sete dias auditado pelo Zizmor; GitHub Actions continuam excluidas do cooldown para receber updates validados sem atraso.
 - Cross Review registrado explicitamente como gate pre-merge no SHA final, nunca como aprovacao retroativa pos-merge.
 - Concorrencia de CodeQL, Public Format e Zizmor isolada por SHA em `push`/`merge_group`, cancelando apenas revisoes de PR superadas; Scorecard tambem preserva cada execucao por SHA sem cancelamento.
+- Forks passam a documentar a ativacao inicial de Pages pela configuracao nativa **Settings → Pages → GitHub Actions**. O workflow nao tenta mais autoativar Pages com `GITHUB_TOKEN`, porque o `actions/configure-pages` oficial exige uma credencial administrativa diferente para `enablement`.
 
 ### Removed
 

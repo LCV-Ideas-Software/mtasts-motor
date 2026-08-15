@@ -142,6 +142,12 @@ For your fork, the alternatives are:
 - Replace the versioned D1 name and ID in `wrangler.json` with the resources owned by the fork.
 - Keep Cloudflare credentials in Actions secrets; a D1 identifier is not a credential and does not replace API authorization.
 
+GitHub Pages is opt-in for each fork. Before the first Pages workflow run, open
+**Settings → Pages** in the fork and select **GitHub Actions** as the publishing
+source. The workflow intentionally does not attempt to enable Pages itself:
+`actions/configure-pages` requires a credential other than `GITHUB_TOKEN` for
+that administrative operation.
+
 ## Repository conventions
 
 - **License**: [AGPL-3.0-or-later](./LICENSE). Network-service trigger applies: running a modified fork as a public service obligates you to publish modifications.
