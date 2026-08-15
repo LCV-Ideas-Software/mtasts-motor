@@ -21,7 +21,6 @@ npm test
 npm run biome
 npm run typecheck
 npm run format:public:check
-npm run projects:boundaries
 ```
 
 ## Workspace Policy
