@@ -166,6 +166,17 @@ that administrative operation.
 - GitHub: [https://github.com/LCV-Ideas-Software/mtasts-motor](https://github.com/LCV-Ideas-Software/mtasts-motor)
 - Sponsors: [https://github.com/sponsors/LCV-Ideas-Software](https://github.com/sponsors/LCV-Ideas-Software)
 
+## AGPL §13 source-offer (operators of public deployments)
+
+If you run this software — or a modified version of it — as a network service that
+users interact with remotely, AGPL §13 requires you to offer those users the
+Corresponding Source of the exact version you operate. For the deployment run by
+this repository's owner, that offer is satisfied here: this public repository IS
+the Corresponding Source, and the deployed revision is always the tip of `main`
+(deploys happen exclusively from it via GitHub Actions; versions are recorded in
+[CHANGELOG.md](./CHANGELOG.md)). If you operate a fork, publish your modified
+source under the same terms and point your users to it.
+
 ## License
 
 AGPL-3.0-or-later. See [LICENSE](./LICENSE), [NOTICE](./NOTICE), and [THIRDPARTY](./THIRDPARTY.md).
