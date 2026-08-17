@@ -12,5 +12,8 @@
 
 # Application and infra surfaces
 /src/ @lcv-leo
+# Prospective: matches future D1 schema migrations even though the
+# directory does not exist yet (CODEOWNERS patterns cover new paths).
+/migrations/ @lcv-leo
 /wrangler.json @lcv-leo
 /**/wrangler.json @lcv-leo

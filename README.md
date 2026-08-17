@@ -168,14 +168,20 @@ that administrative operation.
 
 ## AGPL §13 source-offer (operators of public deployments)
 
-If you run this software — or a modified version of it — as a network service that
-users interact with remotely, AGPL §13 requires you to offer those users the
-Corresponding Source of the exact version you operate. For the deployment run by
-this repository's owner, that offer is satisfied here: this public repository IS
-the Corresponding Source, and the deployed revision is always the tip of `main`
-(deploys happen exclusively from it via GitHub Actions; versions are recorded in
-[CHANGELOG.md](./CHANGELOG.md)). If you operate a fork, publish your modified
-source under the same terms and point your users to it.
+AGPL §13 binds operators of **modified** versions: if you modify this program and
+run your modified version as a network service that users interact with remotely,
+you must prominently offer those users the Corresponding Source of the exact
+version you operate, at no charge. Running an **unmodified** copy does not, by
+itself, trigger that obligation — see [LICENSE](./LICENSE) §13.
+
+For the deployment run by this repository's owner (unmodified code from this
+repository), the source is nevertheless offered here: the deployed revision is
+the head commit of the most recent **successful** run of the
+[Deploy workflow](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/deploy.yml)
+— each green run records the exact SHA it shipped (a queued or failed run leaves
+production on the previous revision, so the moving tip of `main` is not the
+authoritative pointer). If you operate a modified fork, publish your modified
+source under the same terms and point your users to it prominently.
 
 ## License
 
