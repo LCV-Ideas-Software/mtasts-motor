@@ -2,6 +2,21 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Drift documental (issue #140): THIRDPARTY.md realinhado ao `package.json`
+  (biome ^2.5.7, workers-types ^5.20260811.1, typescript ^7.0.2, vitest ^4.1.10,
+  wrangler ^4.120.1), com o prettier ^3.9.6 incluido, o inventario de licencas
+  regenerado do lockfile real (192 pacotes; MIT 105, Apache-2.0 42) e as licencas
+  das linhas diretas lidas do proprio lockfile (biome e wrangler sao
+  `MIT OR Apache-2.0`); README ganhou a secao "AGPL §13 source-offer" que a
+  ancora do CONTRIBUTING:57 apontava sem existir — restrita a operadores de
+  versoes MODIFICADAS (LICENSE §13) e apontando o SHA do ultimo run VERDE do
+  Deploy como revisao implantada, nunca a ponta movel de `main`; CODEOWNERS limpo
+  dos paths sem correspondencia na arvore (`/GEMINI.md`, `/.ai/`, `/.agents/`,
+  `/.gemini/`, `/wrangler.toml` raiz+glob, `/.github/scripts/`), preservando
+  `/migrations/` como padrao prospectivo para futuras migracoes D1.
+
 ### Added
 
 - Governanca de trabalho sobre GitHub Projects, Issues e Discussions: quadro dedicado do repositorio, formularios de issue para Incident, Maintenance e Spike, atalhos para Discussions no seletor de issues, Auto-add nativo dos Projects e o ritual de registro G1..G4 versionado em `AGENTS.md` e `CLAUDE.md` para Claude Code e ChatGPT-Codex.

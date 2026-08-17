@@ -1,13 +1,13 @@
 # Third-Party Components
 
-`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (169 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
+`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (192 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
 
-## License inventory (lockfile, 169 packages — devDeps transitive only)
+## License inventory (lockfile, 192 packages — devDeps transitive only)
 
 | License | Count |
 |---------|-------|
-| MIT | 104 |
-| Apache-2.0 | 20 |
+| MIT | 105 |
+| Apache-2.0 | 42 |
 | MIT OR Apache-2.0 | 13 |
 | MPL-2.0 | 12 |
 | LGPL-3.0-or-later | 10 |
@@ -24,11 +24,12 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 
 | Package | Version | License | Origin |
 |---------|---------|---------|--------|
-| @biomejs/biome | ^2.4.12 | MIT | https://registry.npmjs.org/@biomejs/biome |
-| @cloudflare/workers-types | latest | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
-| typescript | ^6.0.3 | Apache-2.0 | https://registry.npmjs.org/typescript |
-| vitest | latest | MIT | https://registry.npmjs.org/vitest |
-| wrangler | ^4.83.0 | MIT-0 | https://registry.npmjs.org/wrangler |
+| @biomejs/biome | ^2.5.7 | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome |
+| @cloudflare/workers-types | ^5.20260811.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| prettier | ^3.9.6 | MIT | https://registry.npmjs.org/prettier |
+| typescript | ^7.0.2 | Apache-2.0 | https://registry.npmjs.org/typescript |
+| vitest | ^4.1.10 | MIT | https://registry.npmjs.org/vitest |
+| wrangler | ^4.120.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler |
 
 For an exhaustive package-by-package inventory, run:
 
