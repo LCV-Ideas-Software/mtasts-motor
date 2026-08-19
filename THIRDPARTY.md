@@ -24,12 +24,12 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 
 | Package | Version | License | Origin |
 |---------|---------|---------|--------|
-| @biomejs/biome | ^2.5.7 | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome |
-| @cloudflare/workers-types | ^5.20260811.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| @biomejs/biome | ^2.5.8 | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome |
+| @cloudflare/workers-types | ^5.20260812.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | prettier | ^3.9.6 | MIT | https://registry.npmjs.org/prettier |
 | typescript | ^7.0.2 | Apache-2.0 | https://registry.npmjs.org/typescript |
 | vitest | ^4.1.10 | MIT | https://registry.npmjs.org/vitest |
-| wrangler | ^4.120.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler |
+| wrangler | ^4.121.0 | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler |
 
 For an exhaustive package-by-package inventory, run:
 
