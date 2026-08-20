@@ -15,7 +15,7 @@
     "url": "https://github.com/LCV-Ideas-Software/mtasts-motor/issues"
   },
   "engines": {
-    "node": "^22.13.0 || >=24"
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
   },
   "scripts": {
     "format": "biome format --write src && prettier --write \"**/*.{html,json,jsonc,md,mjs,yaml,yml}\" \"eslint.config.js\"",
