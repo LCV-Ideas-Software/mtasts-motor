@@ -46,8 +46,13 @@ updates:
     groups:
       dev-dependencies:
         patterns:
+          - "@eslint/*"
           - "eslint*"
+          - "globals"
+          - "markdownlint*"
+          - "prettier"
           - "typescript"
+          - "typescript-eslint"
           - "@types/*"
           - "wrangler"
           - "@cloudflare/*"
@@ -58,4 +63,10 @@ updates:
           - "major"
           - "minor"
           - "patch"
+    ignore:
+      # typescript-eslint 8.67.0 supports TypeScript only through 6.x.
+      # Remove this bound after its published peer range includes TypeScript 7.
+      - dependency-name: "typescript"
+        versions:
+          - ">=7.0.0 <8.0.0"
     open-pull-requests-limit: 10
