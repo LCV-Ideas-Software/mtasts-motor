@@ -24,7 +24,9 @@ Thanks for your interest. Quick guide for filing issues and opening pull request
 
 ### Local gates
 
-Use Node.js 22.13.0 or newer. Before opening a PR, run locally:
+Use Node.js 22.13.0 or newer within the Node 22 line, or Node.js 24+. Node 23
+is not supported by the development quality-gate toolchain. Before opening a
+PR, run locally:
 
 ```bash
 npm ci
