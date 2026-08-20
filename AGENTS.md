@@ -18,9 +18,12 @@ store. Source em `src/`; deploy exclusivamente via GitHub Actions.
 
 ```bash
 npm test
+npm run lint
 npm run biome
 npm run typecheck
+npm run format:check
 npm run format:public:check
+npm run markdownlint
 ```
 
 ## Workspace Policy
@@ -72,7 +75,6 @@ enfrentar este problema daqui a tres meses?"_ Se sim, vira Discussion.
 - Conhecimento transversal a varios repos (politica de release, regra de ruleset, restricao
   de plataforma) -> Discussions **da organizacao**.
 
-
 **Excecao de seguranca** (tambem no G3): causa raiz, caminho de exploracao ou licao de
 remediacao ligada a **qualquer caso coberto pelo reporte privado de `SECURITY.md`** nao
 vira Discussion publica antes da divulgacao coordenada. Registre no canal privado de
@@ -109,7 +111,7 @@ com desvios `Bloqueado` e `Descartado`.
 
 > **Invariante**: as opcoes `Triagem` e `Concluido` estao vinculadas **por ID** a workflows
 > internos do GitHub que nao sao editaveis por API. Podem ser renomeadas; **nunca apagadas**.
-
+>
 > **Atualizacao por quadro**: `Status`, `Area` e `Ciclo` sao campos de projeto com IDs
 > proprios em cada quadro. Atualize os DOIS quadros — o deste repositorio e o portfolio
 > #17 — a cada transicao; ID de opcao de um quadro nunca vale no outro (Discussion org#176).

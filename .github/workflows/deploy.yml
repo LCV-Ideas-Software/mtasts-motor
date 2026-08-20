@@ -50,6 +50,7 @@ jobs:
           npm run biome
           npm run typecheck
           npm test
+          npm run format:check
           npm run format:public:check
 
       - name: Deploy Worker with Wrangler

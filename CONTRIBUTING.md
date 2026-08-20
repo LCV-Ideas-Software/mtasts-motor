@@ -28,16 +28,27 @@ Before opening a PR, run locally:
 
 ```bash
 npm ci
-npm run lint        # biome check
-npm run typecheck   # tsc --noEmit
-npm test            # vitest
+npm run lint          # ESLint
+npm run biome         # Biome
+npm run typecheck     # tsc --noEmit
+npm test              # Vitest
+npm run format:check  # Prettier over every supported tracked surface
+npm run markdownlint  # markdownlint-cli with the central workspace policy
 ```
 
-All three must be GREEN. CI will re-run these on push.
+All commands must be GREEN. The portable gates run again in CI. `npm run markdownlint`
+finds the central `.markdownlint.jsonc` by walking up from the checkout and fails closed if
+the policy is unavailable; external environments may point to the same policy with
+`LCV_MARKDOWNLINT_CONFIG`.
+
+The five-gate quality directive is ESLint + Biome + Prettier + markdownlint-cli + a
+completed Cross Review on the exact final SHA. Cross Review remains a maintainer process
+gate and must complete before the merge queue; it is never treated as a post-merge approval.
 
 ### PR description
 
 Include:
+
 - What changed and why (one short paragraph).
 - How you tested it (command output OK).
 - Whether the change touches the public response shape (currently `text/plain` policy text on `GET /.well-known/mta-sts.txt`). Public surface changes need careful review.

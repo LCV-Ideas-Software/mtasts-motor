@@ -9,7 +9,10 @@
     "rules": {
       "recommended": true,
       "suspicious": { "noConsole": "off", "noExplicitAny": "off" },
-      "correctness": { "useExhaustiveDependencies": "warn", "noUndeclaredVariables": "off" }
+      "correctness": {
+        "useExhaustiveDependencies": "warn",
+        "noUndeclaredVariables": "off"
+      }
     }
   },
   "formatter": {

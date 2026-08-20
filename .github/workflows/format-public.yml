@@ -29,6 +29,10 @@ jobs:
         run: npm ci --ignore-scripts --no-audit --no-fund
       - name: Check public page formatting
         run: npm run format:public:check
+      - name: Check repository formatting
+        run: npm run format:check
+      - name: Check ESLint policy
+        run: npm run lint
       - name: Check Biome policy
         run: npm run biome
       - name: Typecheck
