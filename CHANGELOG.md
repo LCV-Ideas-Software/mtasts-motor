@@ -27,7 +27,9 @@
   Prettier sobre todas as superficies suportadas, markdownlint-cli usando exclusivamente a
   configuracao central do workspace e Cross Review no SHA final. TypeScript foi mantido na
   linha 6.0.3, a mais nova oficialmente suportada pelo typescript-eslint 8.67.0; o codigo nao
-  usa recursos exclusivos do TypeScript 7 e continua coberto por typecheck e testes.
+  usa recursos exclusivos do TypeScript 7 e continua coberto por typecheck e testes. O
+  toolchain declara Node.js >=22.13.0, rejeita override markdownlint interno ao checkout e
+  mantem `biome.json` sob o gate efetivo do proprio Biome.
 - Workflows de seguranca e qualidade migrados para CodeQL, Zizmor Action, OpenSSF Scorecard e Dependency Review oficiais, fixados por SHA e com permissoes minimas. O CodeQL foi atualizado para v4.37.7, absorvendo o PR #151; o reusable Zizmor interno foi substituido pela Action oficial v0.6.2, supersedendo o PR #152.
 - Deploy do Worker migrado para `cloudflare/wrangler-action` v4.0.0. A Action reutiliza o Wrangler instalado pelo lockfile, e o `database_id` D1 autorizado passa a viver diretamente em `wrangler.json` como fonte de verdade.
 - Cooldown do Dependabot alinhado ao minimo de sete dias auditado pelo Zizmor; GitHub Actions continuam excluidas do cooldown para receber updates validados sem atraso.

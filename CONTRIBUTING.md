@@ -24,7 +24,7 @@ Thanks for your interest. Quick guide for filing issues and opening pull request
 
 ### Local gates
 
-Before opening a PR, run locally:
+Use Node.js 22.13.0 or newer. Before opening a PR, run locally:
 
 ```bash
 npm ci
@@ -37,9 +37,9 @@ npm run markdownlint  # markdownlint-cli with the central workspace policy
 ```
 
 All commands must be GREEN. The portable gates run again in CI. `npm run markdownlint`
-finds the central `.markdownlint.jsonc` by walking up from the checkout and fails closed if
-the policy is unavailable; external environments may point to the same policy with
-`LCV_MARKDOWNLINT_CONFIG`.
+finds the central `.markdownlint.jsonc` by walking up from above the checkout and fails
+closed if the policy is unavailable. Repository-local policy files are ignored, and
+`LCV_MARKDOWNLINT_CONFIG` is rejected when it points inside the checkout.
 
 The five-gate quality directive is ESLint + Biome + Prettier + markdownlint-cli + a
 completed Cross Review on the exact final SHA. Cross Review remains a maintainer process

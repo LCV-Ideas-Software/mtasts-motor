@@ -6,5 +6,5 @@ coverage
 .wrangler
 .next
 .cache
-# Biome owns the formatting of its own configuration file.
+# `npm run biome` checks the formatting of Biome's own configuration.
 biome.json
