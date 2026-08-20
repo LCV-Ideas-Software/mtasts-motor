@@ -62,7 +62,9 @@ You will need:
 
 - A Cloudflare account ([free tier](https://www.cloudflare.com/plans/)) with Workers + D1 enabled.
 - The Cloudflare CLI [`wrangler`](https://developers.cloudflare.com/workers/wrangler/) (installed locally OR used via `npx`).
-- Node.js 22.13.0+ (required by the development quality gates).
+- Node.js 22.22.2+ within the Node 22 line, Node.js 24.15.0+ within the Node 24
+  line, or Node.js 26+ (Node 23 and Node 25 are not supported by the
+  development quality-gate toolchain).
 
 ### 1. Clone + install
 
