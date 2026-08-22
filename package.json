@@ -24,8 +24,9 @@
     "biome": "biome check .",
     "biome:write": "biome check --write .",
     "markdownlint": "node scripts/markdownlint-workspace.mjs",
+    "test:official-actions": "node --test scripts/official-actions-contract.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "vitest run",
+    "test": "vitest run && npm run test:official-actions",
     "format:public": "prettier --write \"**/index.html\"",
     "format:public:check": "prettier --check \"**/index.html\""
   },

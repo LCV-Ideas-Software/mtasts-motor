@@ -23,6 +23,9 @@
 
 ### Changed
 
+- Linear Release migrou do instalador customizado do CLI para a Action oficial
+  `linear/linear-release-action` v0.16.0, fixada por SHA, preservando a criação
+  best-effort somente após um Deploy bem-sucedido e para o mesmo SHA implantado.
 - Diretiva vigente de cinco portoes materializada com ESLint real para TypeScript, Biome,
   Prettier sobre todas as superficies suportadas, markdownlint-cli usando exclusivamente a
   configuracao central do workspace e Cross Review no SHA final. TypeScript foi mantido na
