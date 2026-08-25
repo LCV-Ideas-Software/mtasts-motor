@@ -23,6 +23,9 @@ const deploy = read(".github/workflows/deploy.yml");
 const actionsLock = read(".github/workflows/actions.lock");
 const packageJson = JSON.parse(read("package.json"));
 const packageLock = JSON.parse(read("package-lock.json"));
+const installedWrangler = JSON.parse(
+  read("node_modules/wrangler/package.json"),
+);
 const allWorkflows = readdirSync(workflowsDirectory)
   .filter((file) => /\.ya?ml$/u.test(file))
   .map((file) => read(path.join(".github", "workflows", file)))
@@ -81,8 +84,23 @@ test("Linear Release uses the pinned official action and lock entry", () => {
 test("Deploy keeps the official Wrangler action and lockfile-selected CLI", () => {
   const officialUse =
     "cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0";
+  const installCommand = "npm ci --ignore-scripts --no-audit --no-fund";
+  const installIndex = deploy.indexOf(installCommand);
+  const actionIndex = deploy.indexOf(officialUse);
+  const wranglerRange = packageJson.devDependencies.wrangler;
+  const lockRootRange = packageLock.packages[""].devDependencies.wrangler;
+  const lockedWrangler = packageLock.packages["node_modules/wrangler"];
 
   assert.equal(occurrences(deploy, officialUse), 1);
+  assert.ok(installIndex >= 0, "Deploy must install the lockfile dependencies");
+  assert.ok(
+    actionIndex >= 0,
+    "Deploy must invoke the official Wrangler action",
+  );
+  assert.ok(
+    installIndex < actionIndex,
+    "Deploy must install the lockfile-selected Wrangler before the action",
+  );
   assert.match(deploy, /apiToken: \$\{\{ secrets\.CLOUDFLARE_API_TOKEN \}\}/u);
   assert.match(
     deploy,
@@ -91,11 +109,12 @@ test("Deploy keeps the official Wrangler action and lockfile-selected CLI", () =
   assert.match(deploy, /packageManager: npm/u);
   assert.match(deploy, /command: deploy --strict/u);
   assert.doesNotMatch(deploy, /wranglerVersion:/u);
-  assert.equal(packageJson.devDependencies.wrangler, "^4.123.0");
-  assert.equal(
-    packageLock.packages["node_modules/wrangler"].version,
-    "4.123.0",
-  );
+  assert.match(wranglerRange, /^\^4\.\d+\.\d+$/u);
+  assert.equal(lockRootRange, wranglerRange);
+  assert.match(lockedWrangler.version, /^4\.\d+\.\d+$/u);
+  assert.equal(installedWrangler.version, lockedWrangler.version);
+  assert.equal(lockedWrangler.dev, true);
+  assert.match(lockedWrangler.integrity, /^sha512-/u);
   assert.equal(occurrences(actionsLock, officialUse), 2);
 });
 
