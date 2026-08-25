@@ -1,8 +1,8 @@
 # Third-Party Components
 
-`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (317 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
+`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (318 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
 
-## License inventory (lockfile, 317 packages — devDeps transitive only)
+## License inventory (lockfile, 318 packages — devDeps transitive only)
 
 | License                                  | Count |
 | ---------------------------------------- | ----- |
@@ -11,7 +11,7 @@
 | MIT OR Apache-2.0                        | 13    |
 | MPL-2.0                                  | 12    |
 | LGPL-3.0-or-later                        | 10    |
-| ISC                                      | 8     |
+| ISC                                      | 9     |
 | BSD-2-Clause                             | 7     |
 | Apache-2.0 AND LGPL-3.0-or-later         | 3     |
 | BSD-3-Clause                             | 3     |
@@ -40,6 +40,7 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 | typescript-eslint         | ^8.67.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
 | vitest                    | ^4.1.11       | MIT               | https://registry.npmjs.org/vitest                    |
 | wrangler                  | ^4.124.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| yaml                      | ^2.9.0        | ISC               | https://registry.npmjs.org/yaml                      |
 
 For an exhaustive package-by-package inventory, run:
 
