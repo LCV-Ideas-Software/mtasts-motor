@@ -28,8 +28,8 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
-| @biomejs/biome            | ^2.5.8        | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
-| @cloudflare/workers-types | ^5.20260813.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| @biomejs/biome            | ^2.5.9        | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
+| @cloudflare/workers-types | ^5.20260818.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
 | eslint                    | ^10.8.1       | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
@@ -38,8 +38,8 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 | prettier                  | ^3.9.6        | MIT               | https://registry.npmjs.org/prettier                  |
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
 | typescript-eslint         | ^8.67.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
-| vitest                    | ^4.1.10       | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | ^4.122.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| vitest                    | ^4.1.11       | MIT               | https://registry.npmjs.org/vitest                    |
+| wrangler                  | ^4.124.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
 
