@@ -1,12 +1,12 @@
 # Third-Party Components
 
-`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (322 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
+`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (317 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
 
-## License inventory (lockfile, 322 packages — devDeps transitive only)
+## License inventory (lockfile, 317 packages — devDeps transitive only)
 
 | License                                  | Count |
 | ---------------------------------------- | ----- |
-| MIT                                      | 226   |
+| MIT                                      | 221   |
 | Apache-2.0                               | 34    |
 | MIT OR Apache-2.0                        | 13    |
 | MPL-2.0                                  | 12    |
