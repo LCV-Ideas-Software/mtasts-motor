@@ -68,7 +68,7 @@ const repositoryRoot = resolve(repository.stdout.trim());
 const config = findWorkspaceConfig(repositoryRoot);
 if (!config) {
   console.error(
-    "Central .markdownlint.jsonc not found. Run inside the LCV workspace or set LCV_MARKDOWNLINT_CONFIG.",
+    "Central .markdownlint.jsonc not found. Run inside the LCV Ideas & Software workspace or set LCV_MARKDOWNLINT_CONFIG.",
   );
   process.exit(1);
 }
