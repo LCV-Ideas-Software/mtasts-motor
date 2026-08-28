@@ -4,6 +4,10 @@
 
 ### Fixed
 
+- A versão direta de `@cloudflare/workers-types` em `THIRDPARTY.md` foi
+  realinhada ao `package.json`, e o contrato local agora rejeita qualquer
+  divergência futura entre a tabela de dependências diretas e o manifesto
+  (issue #192).
 - Drift documental (issue #140): THIRDPARTY.md realinhado ao `package.json`
   (biome ^2.5.7, workers-types ^5.20260811.1, typescript ^7.0.2, vitest ^4.1.10,
   wrangler ^4.120.1), com o prettier ^3.9.6 incluido, o inventario de licencas
