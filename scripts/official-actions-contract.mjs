@@ -169,6 +169,33 @@ function documentedLicenseInventory(document) {
   return inventory;
 }
 
+function documentedDirectDependencies(document) {
+  const section = document.match(
+    /## Direct dependencies[^\n]*\n([\s\S]*?)\nFor an exhaustive/u,
+  );
+  assert.ok(section, "THIRDPARTY.md must contain a direct dependencies table");
+
+  const rows = [
+    ...section[1].matchAll(
+      /^\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*([^|]+?)\s*\|\s*$/gmu,
+    ),
+  ]
+    .map(([, packageName, version]) => [packageName.trim(), version.trim()])
+    .filter(
+      ([packageName]) =>
+        packageName !== "Package" && !/^[-: ]+$/u.test(packageName),
+    );
+  const dependencies = new Map(rows);
+
+  assert.equal(
+    dependencies.size,
+    rows.length,
+    "THIRDPARTY.md direct dependencies must not contain duplicate packages",
+  );
+
+  return dependencies;
+}
+
 function duplicateFirstLicenseRow(document) {
   const section = document.match(
     /## License inventory[^\n]*\n([\s\S]*?)\nAll licenses/u,
@@ -267,6 +294,15 @@ test("THIRDPARTY license totals match the authoritative lockfile", () => {
     new RegExp(`License inventory \\(lockfile, ${packageCount} packages`, "u"),
   );
   assert.deepEqual(documentedInventory, expectedInventory);
+});
+
+test("THIRDPARTY direct versions match package.json", () => {
+  const documentedDependencies = documentedDirectDependencies(thirdParty);
+  const expectedDependencies = new Map(
+    Object.entries(packageJson.devDependencies),
+  );
+
+  assert.deepEqual(documentedDependencies, expectedDependencies);
 });
 
 test("THIRDPARTY rejects duplicate license rows", () => {
