@@ -28,10 +28,10 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
-| @biomejs/biome            | ^2.5.9        | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
-| @cloudflare/workers-types | ^5.20260820.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| @biomejs/biome            | ^2.5.10       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
+| @cloudflare/workers-types | ^5.20260822.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
-| eslint                    | ^10.8.1       | MIT               | https://registry.npmjs.org/eslint                    |
+| eslint                    | ^10.9.0       | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
 | globals                   | ^17.11.0      | MIT               | https://registry.npmjs.org/globals                   |
 | markdownlint-cli          | ^0.49.1       | MIT               | https://registry.npmjs.org/markdownlint-cli          |
@@ -39,7 +39,7 @@ All licenses are permissive or copyleft-compatible with this project's AGPL-3.0-
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
 | typescript-eslint         | ^8.67.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
 | vitest                    | ^4.1.11       | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | ^4.124.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| wrangler                  | ^4.125.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 | yaml                      | ^2.9.0        | ISC               | https://registry.npmjs.org/yaml                      |
 
 For an exhaustive package-by-package inventory, run:
