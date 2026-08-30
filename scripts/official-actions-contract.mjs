@@ -258,14 +258,14 @@ test("Linear Release remains tied to the successfully deployed main SHA", () => 
 
 test("Linear Release uses the pinned official action and lock entry", () => {
   const officialUse =
-    "linear/linear-release-action@0a25abab892a91062ebf42260dbb2ce6277aa205";
+    "linear/linear-release-action@3f31fcf14c110cc53579fcc3575a26d469c413b4";
 
   assert.equal(occurrences(linearRelease, officialUse), 1);
   assert.match(
     linearRelease,
     /access_key: \$\{\{ secrets\.LINEAR_ACCESS_KEY \}\}/u,
   );
-  assert.match(linearRelease, /cli_version: v0\.16\.0/u);
+  assert.match(linearRelease, /cli_version: v0\.17\.1/u);
   assert.doesNotMatch(
     linearRelease,
     /CLI_URL|CLI_SHA256|linear-release-linux|curl\s+-/u,
@@ -273,7 +273,7 @@ test("Linear Release uses the pinned official action and lock entry", () => {
   assert.equal(occurrences(actionsLock, officialUse), 2);
   assert.match(
     actionsLock,
-    /'linear\/linear-release-action@0a25abab892a91062ebf42260dbb2ce6277aa205':[\s\S]*?ref: 'v0\.16\.0'/u,
+    /'linear\/linear-release-action@3f31fcf14c110cc53579fcc3575a26d469c413b4':[\s\S]*?ref: 'v0\.17\.1'/u,
   );
 });
 
