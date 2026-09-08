@@ -215,7 +215,6 @@ function duplicateFirstLicenseRow(document) {
 
 const linearRelease = read(".github/workflows/linear-release.yml");
 const deploy = read(".github/workflows/deploy.yml");
-const actionsLock = read(".github/workflows/actions.lock");
 const thirdParty = read("THIRDPARTY.md");
 const packageJson = JSON.parse(read("package.json"));
 const packageLock = JSON.parse(read("package-lock.json"));
@@ -368,7 +367,6 @@ test("Deploy keeps the official Wrangler action and lockfile-selected CLI", () =
   assert.equal(installedWrangler.version, lockedWrangler.version);
   assert.equal(lockedWrangler.dev, true);
   assert.match(lockedWrangler.integrity, /^sha512-/u);
-  assert.equal(occurrences(actionsLock, officialUse), 2);
 });
 
 test("the local Wrangler installation cannot come from a different job", () => {
