@@ -4,6 +4,9 @@
 
 ### Fixed
 
+- O contrato do Linear Release aceita atualizações do Dependabot sem fixar uma
+  versão específica no teste; mantém a action oficial por SHA e o CLI explícito,
+  agora em v0.17.2, sem exigir a entrada obsoleta do Actions lock para a Linear.
 - A versão direta de `@cloudflare/workers-types` em `THIRDPARTY.md` foi
   realinhada ao `package.json`, e o contrato local agora rejeita qualquer
   divergência futura entre a tabela de dependências diretas e o manifesto
@@ -28,8 +31,8 @@
 ### Changed
 
 - Linear Release migrou do instalador customizado do CLI para a Action oficial
-  `linear/linear-release-action` v0.16.0, fixada por SHA, preservando a criação
-  best-effort somente após um Deploy bem-sucedido e para o mesmo SHA implantado.
+  `linear/linear-release-action` v0.17.2, fixada por SHA, preservando a criação
+  somente após um Deploy bem-sucedido e para o mesmo SHA implantado, com falhas visíveis.
 - Diretiva vigente de cinco portoes materializada com ESLint real para TypeScript, Biome,
   Prettier sobre todas as superficies suportadas, markdownlint-cli usando exclusivamente a
   configuracao central do workspace e Cross Review no SHA final. TypeScript foi mantido na
