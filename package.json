@@ -31,8 +31,8 @@
     "format:public:check": "prettier --check \"**/index.html\""
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.10",
-    "@cloudflare/workers-types": "^5.20260825.1",
+    "@biomejs/biome": "^2.5.11",
+    "@cloudflare/workers-types": "^5.20260901.1",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
@@ -40,9 +40,9 @@
     "markdownlint-cli": "^0.49.1",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.68.0",
+    "typescript-eslint": "^8.69.0",
     "vitest": "^4.1.11",
-    "wrangler": "^4.125.0",
+    "wrangler": "^4.127.1",
     "yaml": "^2.9.0"
   },
   "overrides": {
