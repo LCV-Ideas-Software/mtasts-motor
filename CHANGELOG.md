@@ -21,6 +21,9 @@
   `/.gemini/`, `/wrangler.toml` raiz+glob, `/.github/scripts/`), preservando
   `/migrations/` como padrao prospectivo para futuras migracoes D1.
 
+- As quatro versões diretas atualizadas pelo Dependabot no PR #202 foram
+  sincronizadas em `THIRDPARTY.md`, sem alterar licenças, inventário ou contratos.
+
 ### Added
 
 - Governanca de trabalho sobre GitHub Projects, Issues e Discussions: quadro dedicado do repositorio, formularios de issue para Incident, Maintenance e Spike, atalhos para Discussions no seletor de issues, Auto-add nativo dos Projects e o ritual de registro G1..G4 versionado em `AGENTS.md` e `CLAUDE.md` para Claude Code e ChatGPT-Codex.
