@@ -7,7 +7,7 @@
 [![status: stable](https://img.shields.io/badge/status-stable-brightgreen.svg)](#status)
 [![Deploy](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/deploy.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/deploy.yml)
 [![Pages](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/pages.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/pages.yml)
-[![CodeQL](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/codeql.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/codeql.yml)
+[![CI](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/ci.yml/badge.svg)](https://github.com/LCV-Ideas-Software/mtasts-motor/actions/workflows/ci.yml)
 [![runtime: Cloudflare Worker](https://img.shields.io/badge/runtime-Cloudflare%20Worker-orange.svg)](https://workers.cloudflare.com/)
 [![storage: Cloudflare D1](https://img.shields.io/badge/storage-Cloudflare%20D1-blue.svg)](https://developers.cloudflare.com/d1/)
 [![license: AGPL-3.0-or-later](https://img.shields.io/badge/license-AGPL--3.0-blue.svg)](./LICENSE)
@@ -137,7 +137,27 @@ For each domain whose policy this Worker should serve, configure a Cloudflare cu
 
 ## CI deploy (this repo)
 
-This repo's [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) runs `npm audit (high) → lint → Biome → typecheck → test → public-format check` on every push to `main`, then deploys through the official Cloudflare Wrangler Action. The Action reuses the Wrangler version installed from `package-lock.json`; `wrangler.json` remains the versioned source of truth for the D1 binding.
+The [CI workflow](.github/workflows/ci.yml) runs ESLint, Biome, TypeScript,
+the six Worker tests, repository/public HTML formatting and an official Wrangler
+dry run on pull requests to `main`. The [Deploy workflow](.github/workflows/deploy.yml)
+repeats the product checks plus `npm audit --audit-level=high` on every push to
+`main`, then deploys through the official Cloudflare Wrangler Action. The Action
+reuses the Wrangler version installed from `package-lock.json`; `wrangler.json`
+remains the versioned source of truth for the D1 binding. The runtime and its
+read-only policy lookup are independent of other repositories.
+
+Dependency Review, Zizmor, Scorecard and CodeQL **Default Setup** are separate
+native checks. Dependabot groups weekly minor/patch updates with a seven-day
+cooldown and keeps major updates separate. Its repository-local workflow arms
+GitHub native auto-merge for same-repository Dependabot PRs. Applicable required
+checks must be configured before enabling that workflow on `main`; no merge
+queue or mandatory human/AI review is introduced. The existing organization
+Dependabot secret supplies the merge credential without a custom GitHub App.
+
+The [Linear Release workflow](.github/workflows/linear-release.yml) records only
+the exact SHA of a successful push-triggered Deploy on this repository's `main`.
+It retains the dedicated environment and official Linear Action. GitHub/Slack
+continues through the existing native integration, without a new webhook relay.
 
 For your fork, the alternatives are:
 
@@ -158,6 +178,7 @@ that administrative operation.
 - **Code of conduct**: see [CODE_OF_CONDUCT.md](./CODE_OF_CONDUCT.md).
 - **Changelog**: [CHANGELOG.md](./CHANGELOG.md).
 - **Contributing**: see [CONTRIBUTING.md](./CONTRIBUTING.md).
+- **Inbound rights**: see [INBOUND.md](./INBOUND.md).
 - **Sponsorship**: see the repo's `Sponsor` button or [central sponsor page](https://www.lcv.dev/sponsor).
 - **Action pinning**: all GitHub Actions are pinned by full SHA per supply-chain hardening baseline.
 - **Code owners**: [.github/CODEOWNERS](.github/CODEOWNERS).

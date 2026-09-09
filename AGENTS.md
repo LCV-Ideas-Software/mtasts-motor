@@ -23,17 +23,38 @@ npm run biome
 npm run typecheck
 npm run format:check
 npm run format:public:check
-npm run markdownlint
 ```
 
 ## Workspace Policy
 
-Follow the workspace-root `AGENTS.md` directives of the private workspace that
-hosts this checkout (not versioned in this public repository). In particular:
-no self-review in Cross Review; `ultrabrain` plus one completed Cross Review on
-the exact final SHA before the merge queue; never use a post-merge Cross Review
-as retroactive approval; `main` as the deployment branch; and Commit & Sync only
-after final audit when requested.
+The current Enterprise/Organization reform standard supersedes earlier local
+governance instructions. Follow the workspace-root `AGENTS.md` directives:
+official native solutions, independent repositories, Ultrabrain for substantive
+reasoning and cross-review only where complexity warrants it. Do not introduce
+custom gates, controllers or mandatory human/AI reviews of Dependabot PRs.
+Prepare changes locally and present the complete report for operator approval
+before committing, pushing or opening a PR. GitHub configuration changes require
+separate explicit approval. Never change signing configuration, run Cargo/Rust
+locally or use Codespaces.
+
+This repository deploys a Worker, not an npm package or a Windows application.
+Do not add GitHub Releases or version tags. Preserve the read-only D1 policy
+lookup, existing Worker identity and bindings, response semantics and product
+tests. The separate repository site continues to use GitHub Pages.
+
+CI validates PRs to `main` and manual dispatches with the repository's native
+tools and an official Wrangler dry run. Deploy repeats the product checks and
+publishes `main` through the official Cloudflare Wrangler Action, reusing the
+installed lockfile-selected CLI. Linear Release records only the exact SHA of
+a successful push-triggered deployment of this repository's `main`. Preserve
+the native GitHub/Linear and GitHub/Slack integrations without adding relays.
+
+Do not restore retired `actions.lock` consumers, custom workflow/license
+inventory validators, workspace-dependent markdownlint loaders, advanced CodeQL
+workflows or merge queue. CodeQL uses Default Setup. Keep `THIRDPARTY.md` as a
+maintained snapshot of development tooling; no npm runtime dependencies are
+bundled into this Worker. Native Dependency Review is not a license-text
+generator or a guarantee that future notices update automatically.
 
 ## Registro de trabalho (GitHub Projects, Issues e Discussions)
 
@@ -116,10 +137,10 @@ com desvios `Bloqueado` e `Descartado`.
 > proprios em cada quadro. Atualize os DOIS quadros — o deste repositorio e o portfolio
 > #17 — a cada transicao; ID de opcao de um quadro nunca vale no outro (Discussion org#176).
 
-### Nada de identificador real em repositorio publico
+### Identifiers and private evidence
 
-Issues, PRs e Discussions deste repositorio sao publicos e permanentes. Use placeholders
-(`proj-x`, `exemplo-projeto-000`, `exemplo.com`) no lugar de IDs de projeto de nuvem, nomes
-de banco, dominios e contas. O `database_id` do D1 versionado em `wrangler.json` e uma
-excecao explicita: ele e identificador de recurso, nao credencial. Detalhe operacional
-sensivel vai para o quadro privado ou para `.github-private`.
+Non-secret resource IDs, domains and configuration metadata required by official
+integrations may be versioned under the current operator policy. Credentials,
+secret values, private evidence and coordinated-disclosure details must remain
+in their authorized private systems, not public Issues, PRs or Discussions.
+Keep the existing D1 resource identity intact; an identifier does not grant access.
