@@ -3,71 +3,59 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "01:00"
-      timezone: "America/Los_Angeles"
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Sao_Paulo"
     cooldown:
       default-days: 7
       exclude:
         - "actions/*"
         - "github/*"
+    rebase-strategy: auto
     labels:
       - "dependencies"
-      - "github-actions"
     commit-message:
       prefix: "deps"
       include: "scope"
     open-pull-requests-limit: 10
     groups:
-      codeql-action:
+      minor-e-patch:
         applies-to: version-updates
         patterns:
-          - "github/codeql-action*"
-      codeql-action-security-updates:
-        applies-to: security-updates
-        patterns:
-          - "github/codeql-action*"
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "daily"
-      time: "01:00"
-      timezone: "America/Los_Angeles"
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "America/Sao_Paulo"
     cooldown:
       default-days: 7
+    rebase-strategy: auto
     labels:
       - "dependencies"
-      - "npm"
-      - "worker"
     commit-message:
       prefix: "deps"
       include: "scope"
     versioning-strategy: increase
-    groups:
-      dev-dependencies:
-        patterns:
-          - "@eslint/*"
-          - "eslint*"
-          - "globals"
-          - "markdownlint*"
-          - "prettier"
-          - "typescript"
-          - "typescript-eslint"
-          - "@types/*"
-          - "wrangler"
-          - "@cloudflare/*"
-          - "vite*"
-          - "@vitest/*"
-          - "@biomejs/*"
-        update-types:
-          - "major"
-          - "minor"
-          - "patch"
     ignore:
-      # typescript-eslint 8.67.0 supports TypeScript only through 6.x.
-      # Remove this bound after its published peer range includes TypeScript 7.
+      # typescript-eslint supports TypeScript only below 6.1.0.
+      # https://typescript-eslint.io/users/dependency-versions/
       - dependency-name: "typescript"
         versions:
-          - ">=7.0.0 <8.0.0"
+          - ">=6.1.0"
+    groups:
+      minor-e-patch:
+        applies-to: version-updates
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
     open-pull-requests-limit: 10

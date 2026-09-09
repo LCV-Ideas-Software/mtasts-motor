@@ -2,7 +2,35 @@
 
 ## [Unreleased]
 
-### Fixed
+### Native governance reform
+
+- Replaced the misleading Public Format workflow with PR CI using ESLint,
+  Biome, TypeScript, the six existing Worker tests, Prettier and an official
+  Wrangler dry run. Worker source, D1 identity and version 2.0.13 are unchanged.
+- Adopted the current repository-local Dependabot auto-merge, weekly grouped
+  minor/patch updates, Pages PR artifact validation and native security workflow
+  patterns. Major updates remain separate. Linear Release keeps the exact
+  successfully deployed `main` SHA and additionally validates event/repository.
+- Removed the disabled advanced CodeQL workflow, custom Actions/license
+  inventory validator, workspace-dependent markdownlint loader and their two
+  direct tooling dependencies. CodeQL Default Setup remains authoritative;
+  native Dependency Review does not generate or automatically maintain notices.
+- Added repository-local inbound rights and aligned current contributor/agent
+  guidance with the operator's no-controller, no-merge-queue reform standard.
+- Updated the existing development-only `sharp` override to 0.35.4 and its
+  official npm lockfile entries; no Wrangler or product dependency upgrade.
+  Refreshed the maintained third-party tooling snapshot after these changes.
+
+Publication and any repository settings changes require the operator's approval
+of the complete preparation report. No release tag or npm package is introduced.
+
+### Earlier maintenance recorded before this reform
+
+The entries below preserve prior work. Their references to custom validators,
+workspace policy loaders and mandatory merge-queue reviews describe the earlier
+configuration, superseded by the native governance reform above.
+
+#### Fixed
 
 - Removed the stale GitHub Actions dependency lockfile, its generated workflow
   headers and lock-only test assertions that blocked Dependabot updates;
@@ -30,11 +58,11 @@
 - As quatro versões diretas atualizadas pelo Dependabot no PR #202 foram
   sincronizadas em `THIRDPARTY.md`, sem alterar licenças, inventário ou contratos.
 
-### Added
+#### Added
 
 - Governanca de trabalho sobre GitHub Projects, Issues e Discussions: quadro dedicado do repositorio, formularios de issue para Incident, Maintenance e Spike, atalhos para Discussions no seletor de issues, Auto-add nativo dos Projects e o ritual de registro G1..G4 versionado em `AGENTS.md` e `CLAUDE.md` para Claude Code e ChatGPT-Codex.
 
-### Changed
+#### Changed
 
 - Linear Release migrou do instalador customizado do CLI para a Action oficial
   `linear/linear-release-action` v0.17.2, fixada por SHA, preservando a criação
@@ -54,7 +82,7 @@
 - Concorrencia de CodeQL, Public Format e Zizmor isolada por SHA em `push`/`merge_group`, cancelando apenas revisoes de PR superadas; Scorecard tambem preserva cada execucao por SHA sem cancelamento.
 - Forks passam a documentar a ativacao inicial de Pages pela configuracao nativa **Settings → Pages → GitHub Actions**. O workflow nao tenta mais autoativar Pages com `GITHUB_TOKEN`, porque o `actions/configure-pages` oficial exige uma credencial administrativa diferente para `enablement`.
 
-### Removed
+#### Removed
 
 - Native Auto-merge, Add to project e Auto-release customizados, seus validadores proprios, o gate SARIF paralelo do CodeQL, o reusable Zizmor interno, suppressions obsoletos e todas as declaracoes `permissions: write-all`.
 

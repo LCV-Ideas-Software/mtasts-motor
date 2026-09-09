@@ -23,10 +23,8 @@
     "lint": "eslint . --max-warnings=0",
     "biome": "biome check .",
     "biome:write": "biome check --write .",
-    "markdownlint": "node scripts/markdownlint-workspace.mjs",
-    "test:official-actions": "node --test scripts/official-actions-contract.mjs",
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "vitest run && npm run test:official-actions",
+    "test": "vitest run",
     "format:public": "prettier --write \"**/index.html\"",
     "format:public:check": "prettier --check \"**/index.html\""
   },
@@ -37,13 +35,11 @@
     "eslint": "^10.9.1",
     "eslint-config-prettier": "^10.1.8",
     "globals": "^17.11.0",
-    "markdownlint-cli": "^0.49.1",
     "prettier": "^3.9.6",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.69.0",
     "vitest": "^4.1.11",
-    "wrangler": "^4.127.1",
-    "yaml": "^2.9.0"
+    "wrangler": "^4.127.1"
   },
   "overrides": {
     "miniflare": {
@@ -51,6 +47,6 @@
     },
     "ws": "8.21.0",
     "esbuild": "0.28.1",
-    "sharp": "0.35.3"
+    "sharp": "0.35.4"
   }
 }

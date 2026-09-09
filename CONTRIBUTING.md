@@ -29,23 +29,27 @@ within the Node 24 line, or Node.js 26+. Node 23 and Node 25 are not supported
 by the development quality-gate toolchain. Before opening a PR, run locally:
 
 ```bash
-npm ci
+npm ci --ignore-scripts --no-audit --no-fund
 npm run lint          # ESLint
 npm run biome         # Biome
 npm run typecheck     # tsc --noEmit
 npm test              # Vitest
 npm run format:check  # Prettier over every supported tracked surface
-npm run markdownlint  # markdownlint-cli with the central workspace policy
+npm run format:public:check
+npx --no-install wrangler deploy --dry-run --strict
 ```
 
-All commands must be GREEN. The portable gates run again in CI. `npm run markdownlint`
-finds the central `.markdownlint.jsonc` by walking up from above the checkout and fails
-closed if the policy is unavailable. Repository-local policy files are ignored, and
-`LCV_MARKDOWNLINT_CONFIG` is rejected when it points inside the checkout.
+All commands must pass. CI runs the same repository-local tools on pull requests
+to `main`, including retargeted PRs, without a workspace configuration or custom
+governance scripts. The dry run validates the Worker bundle without deployment
+or database writes. Native Dependency Review, Zizmor, Scorecard and CodeQL
+Default Setup remain separate from formatting and product tests.
 
-The five-gate quality directive is ESLint + Biome + Prettier + markdownlint-cli + a
-completed Cross Review on the exact final SHA. Cross Review remains a maintainer process
-gate and must complete before the merge queue; it is never treated as a post-merge approval.
+Dependabot uses GitHub native auto-merge after applicable required checks; do not
+add mandatory human or AI reviews, merge queue, custom controllers or extra
+repository settings without the operator's approval. Use independent review
+where complexity warrants it, and distinguish local checks from remote CI and
+post-deployment evidence.
 
 ### PR description
 
@@ -67,7 +71,11 @@ The repo enforces `web_commit_signoff_required` for browser-edited commits. For 
 
 ## License
 
-By contributing, you agree your contribution is licensed under [AGPL-3.0-or-later](./LICENSE) — same as the rest of the project. AGPL §13 applies to network-service operators of forks; see [README.md → AGPL §13 source-offer](./README.md#agpl-13-source-offer-operators-of-public-deployments).
+Read [INBOUND.md](./INBOUND.md) before submitting copyrightable material. Opening
+an issue or PR does not transfer copyright; contributor-owned material requires
+the separately executed written rights described there before merge. The project
+remains [AGPL-3.0-or-later](./LICENSE). AGPL §13 applies to network-service
+operators of modified forks; see [README.md → AGPL §13 source-offer](./README.md#agpl-13-source-offer-operators-of-public-deployments).
 
 ---
 
