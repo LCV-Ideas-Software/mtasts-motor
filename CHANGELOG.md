@@ -4,6 +4,9 @@
 
 ### Changed
 
+- Schedule Dependabot version updates every day, including weekends, at 05:00
+  in the fixed UTC-03:00 time zone and group security updates per ecosystem.
+  Preserve the existing version-update groups, cooldown and compatibility ignore.
 - Update the official CodeQL Action to v4.38.0 and Zizmor Action to v0.6.4,
   retaining full commit pins and the existing workflow behavior.
 
@@ -18,7 +21,7 @@
 - Replaced the misleading Public Format workflow with PR CI using ESLint,
   Biome, TypeScript, the six existing Worker tests, Prettier and an official
   Wrangler dry run. Worker source, D1 identity and version 2.0.13 are unchanged.
-- Adopted the current repository-local Dependabot auto-merge, weekly grouped
+- Adopted the current repository-local Dependabot auto-merge, daily grouped
   minor/patch updates, Pages PR artifact validation and native security workflow
   patterns. Major updates remain separate. Linear Release keeps the exact
   successfully deployed `main` SHA and additionally validates event/repository.
