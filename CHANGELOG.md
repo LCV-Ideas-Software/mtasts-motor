@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+### Changed
+
+- Update the official CodeQL Action to v4.38.0 and Zizmor Action to v0.6.4,
+  retaining full commit pins and the existing workflow behavior.
+
 ### Fixed
 
 - Synchronize the maintained third-party inventory with the already-merged
