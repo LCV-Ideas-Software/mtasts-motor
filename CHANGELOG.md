@@ -2,6 +2,12 @@
 
 ## [Unreleased]
 
+### Fixed
+
+- Synchronize the maintained third-party inventory with the already-merged
+  Workers types, globals and Wrangler development updates. The 251-package
+  license counts and zero-runtime-dependency Worker remain unchanged.
+
 ### Native governance reform
 
 - Replaced the misleading Public Format workflow with PR CI using ESLint,
