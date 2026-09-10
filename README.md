@@ -147,8 +147,13 @@ remains the versioned source of truth for the D1 binding. The runtime and its
 read-only policy lookup are independent of other repositories.
 
 Dependency Review, Zizmor, Scorecard and CodeQL **Default Setup** are separate
-native checks. Dependabot groups weekly minor/patch updates with a seven-day
-cooldown and keeps major updates separate. Its repository-local workflow arms
+native checks. Dependabot checks for version updates every day, including
+weekends, at 05:00 in the fixed UTC-03:00 time zone. Minor/patch version updates
+are grouped with the existing seven-day cooldown and Actions exclusions;
+major version updates remain separate. Security updates form a separate group
+per ecosystem and do not wait for that schedule or cooldown. If one grouped
+security update fails, diagnose it and adjust native grouping so other fixes
+can proceed through the required checks. Its repository-local workflow arms
 GitHub native auto-merge for same-repository Dependabot PRs. Applicable required
 checks must be configured before enabling that workflow on `main`; no merge
 queue or mandatory human/AI review is introduced. The existing organization
