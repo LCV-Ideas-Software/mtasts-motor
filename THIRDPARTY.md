@@ -1,12 +1,12 @@
 # Third-Party Components
 
-`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (251 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
+`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (245 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
 
-## License inventory (lockfile, 251 packages — devDeps transitive only)
+## License inventory (lockfile, 245 packages — devDeps transitive only)
 
 | License                                  | Count |
 | ---------------------------------------- | ----- |
-| MIT                                      | 160   |
+| MIT                                      | 154   |
 | Apache-2.0                               | 34    |
 | MIT OR Apache-2.0                        | 13    |
 | MPL-2.0                                  | 12    |
@@ -29,8 +29,8 @@ license terms. The deployed Worker contains only this project's source.
 
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
-| @biomejs/biome            | ^2.5.11       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
-| @cloudflare/workers-types | ^5.20260902.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| @biomejs/biome            | ^2.5.12       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
+| @cloudflare/workers-types | ^5.20260904.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
 | eslint                    | ^10.9.1       | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
@@ -38,8 +38,8 @@ license terms. The deployed Worker contains only this project's source.
 | prettier                  | ^3.9.6        | MIT               | https://registry.npmjs.org/prettier                  |
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
 | typescript-eslint         | ^8.69.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
-| vitest                    | ^4.1.11       | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | ^4.128.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| vitest                    | ^5.0.0        | MIT               | https://registry.npmjs.org/vitest                    |
+| wrangler                  | ^4.129.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
 
@@ -51,7 +51,8 @@ npm sbom --sbom-format cyclonedx
 
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
-This is a maintained snapshot, updated on 10/09/2026 after the development-only
-Workers types, globals and Wrangler updates; all 251 package/license counts remain unchanged. Native Dependency
-Review and npm SBOM metadata do not replace license texts or automatically update
-this document. Review the snapshot when the tooling or distribution changes.
+This is a maintained snapshot, updated on 11/09/2026 after the development-only
+Biome, Workers types, Vitest and Wrangler updates. The current lockfile contains
+245 packages, including 154 with MIT metadata. Native Dependency Review and npm
+SBOM metadata do not replace license texts or automatically update this document.
+Review the snapshot when the tooling or distribution changes.

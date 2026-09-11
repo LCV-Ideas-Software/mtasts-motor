@@ -13,8 +13,9 @@
 ### Fixed
 
 - Synchronize the maintained third-party inventory with the already-merged
-  Workers types, globals and Wrangler development updates. The 251-package
-  license counts and zero-runtime-dependency Worker remain unchanged.
+  Biome, Workers types, Vitest and Wrangler development updates, including the
+  current 245-package total and 154 MIT metadata entries. The Worker has zero
+  runtime dependencies.
 
 ### Native governance reform
 
