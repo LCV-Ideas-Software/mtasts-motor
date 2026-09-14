@@ -1,12 +1,12 @@
 # Third-Party Components
 
-`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (245 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
+`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (253 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
 
-## License inventory (lockfile, 245 packages — devDeps transitive only)
+## License inventory (lockfile, 253 packages — devDeps transitive only)
 
 | License                                  | Count |
 | ---------------------------------------- | ----- |
-| MIT                                      | 154   |
+| MIT                                      | 162   |
 | Apache-2.0                               | 34    |
 | MIT OR Apache-2.0                        | 13    |
 | MPL-2.0                                  | 12    |
@@ -30,9 +30,9 @@ license terms. The deployed Worker contains only this project's source.
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
 | @biomejs/biome            | ^2.5.12       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
-| @cloudflare/workers-types | ^5.20260904.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| @cloudflare/workers-types | ^5.20260906.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
-| eslint                    | ^10.9.1       | MIT               | https://registry.npmjs.org/eslint                    |
+| eslint                    | ^10.10.0      | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
 | globals                   | ^17.12.0      | MIT               | https://registry.npmjs.org/globals                   |
 | prettier                  | ^3.9.6        | MIT               | https://registry.npmjs.org/prettier                  |
@@ -51,8 +51,8 @@ npm sbom --sbom-format cyclonedx
 
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
-This is a maintained snapshot, updated on 11/09/2026 after the development-only
-Biome, Workers types, Vitest and Wrangler updates. The current lockfile contains
-245 packages, including 154 with MIT metadata. Native Dependency Review and npm
+This is a maintained snapshot, updated on 14/09/2026 after the development-only
+ESLint and Workers types updates. The current lockfile contains
+253 packages, including 162 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.

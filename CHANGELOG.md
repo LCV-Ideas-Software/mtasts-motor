@@ -13,8 +13,8 @@
 ### Fixed
 
 - Synchronize the maintained third-party inventory with the already-merged
-  Biome, Workers types, Vitest and Wrangler development updates, including the
-  current 245-package total and 154 MIT metadata entries. The Worker has zero
+  Biome, ESLint, Workers types, Vitest and Wrangler development updates, including the
+  current 253-package total and 162 MIT metadata entries. The Worker has zero
   runtime dependencies.
 
 ### Native governance reform
