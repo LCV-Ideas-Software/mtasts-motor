@@ -12,6 +12,9 @@
 
 ### Fixed
 
+- Align the Workers types inventory range with version 5.20260907.1 already
+  recorded in the package manifest and lockfile.
+
 - Synchronize the maintained third-party inventory with the already-merged
   Biome, ESLint, Workers types, Vitest and Wrangler development updates, including the
   current 253-package total and 162 MIT metadata entries. The Worker has zero
