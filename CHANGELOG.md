@@ -4,6 +4,10 @@
 
 ### Changed
 
+- Declare Wrangler with the exact pin `4.130.0` instead of the `^4.130.0` range,
+  regenerate the lockfile with npm (the installed version is unchanged) and align
+  the third-party inventory row. This standardizes the manifest with the rest of
+  the fleet now that Deploy uses the lockfile Wrangler (MTASTS-20 / #226, GIT-230).
 - Schedule Dependabot version updates every day, including weekends, at 05:00
   in the fixed UTC-03:00 time zone and group security updates per ecosystem.
   Preserve the existing version-update groups, cooldown and compatibility ignore.

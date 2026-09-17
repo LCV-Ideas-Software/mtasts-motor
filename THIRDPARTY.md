@@ -39,7 +39,7 @@ license terms. The deployed Worker contains only this project's source.
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
 | typescript-eslint         | ^8.69.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
 | vitest                    | ^5.0.0        | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | ^4.129.0      | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| wrangler                  | 4.130.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
 
