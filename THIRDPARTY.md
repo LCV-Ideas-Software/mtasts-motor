@@ -5,20 +5,20 @@
 ## License inventory (lockfile, 253 packages — devDeps transitive only)
 
 | License                                  | Count |
-| ---------------------------------------- | ----- |
-| MIT                                      | 162   |
-| Apache-2.0                               | 34    |
-| MIT OR Apache-2.0                        | 13    |
-| MPL-2.0                                  | 12    |
-| LGPL-3.0-or-later                        | 10    |
-| ISC                                      | 7     |
-| BSD-2-Clause                             | 6     |
-| Apache-2.0 AND LGPL-3.0-or-later         | 3     |
-| BSD-3-Clause                             | 2     |
-| 0BSD                                     | 1     |
-| Apache-2.0 AND LGPL-3.0-or-later AND MIT | 1     |
-| BlueOak-1.0.0                            | 1     |
-| CC0-1.0                                  | 1     |
+| ---------------------------------------- | ----: |
+| MIT                                      |   162 |
+| Apache-2.0                               |    34 |
+| MIT OR Apache-2.0                        |    13 |
+| MPL-2.0                                  |    12 |
+| LGPL-3.0-or-later                        |    10 |
+| ISC                                      |     7 |
+| BSD-2-Clause                             |     6 |
+| Apache-2.0 AND LGPL-3.0-or-later         |     3 |
+| BSD-3-Clause                             |     2 |
+| 0BSD                                     |     1 |
+| Apache-2.0 AND LGPL-3.0-or-later AND MIT |     1 |
+| BlueOak-1.0.0                            |     1 |
+| CC0-1.0                                  |     1 |
 
 These labels reflect npm lockfile metadata, not a blanket legal compatibility
 determination. LGPL/MPL packages are development tooling, not Worker runtime
@@ -29,17 +29,17 @@ license terms. The deployed Worker contains only this project's source.
 
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
-| @biomejs/biome            | ^2.5.12       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
-| @cloudflare/workers-types | ^5.20260907.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
+| @biomejs/biome            | ^2.5.13       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
+| @cloudflare/workers-types | ^5.20260915.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
 | eslint                    | ^10.10.0      | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
 | globals                   | ^17.12.0      | MIT               | https://registry.npmjs.org/globals                   |
 | prettier                  | ^3.9.6        | MIT               | https://registry.npmjs.org/prettier                  |
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
-| typescript-eslint         | ^8.69.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
+| typescript-eslint         | ^8.70.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
 | vitest                    | ^5.0.0        | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | 4.130.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| wrangler                  | 4.136.1       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
 
@@ -51,8 +51,8 @@ npm sbom --sbom-format cyclonedx
 
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
-This is a maintained snapshot, updated on 14/09/2026 after the development-only
-ESLint and Workers types updates. The current lockfile contains
+This is a maintained snapshot, updated on 22/09/2026 after the development-only
+Wrangler update and removal of redundant Miniflare/Sharp overrides. The current lockfile contains
 253 packages, including 162 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.
