@@ -4,7 +4,7 @@
 
 ### Changed
 
-- Update the exact Wrangler pin to `4.136.1`, regenerate the lockfile with npm,
+- Update the exact Wrangler pin to `4.136.2`, regenerate the lockfile with npm,
   remove redundant Miniflare/Sharp overrides and refresh the tooling inventory
   from the resulting manifests and lockfile (LCV-213).
 - Schedule Dependabot version updates every day, including weekends, at 05:00
