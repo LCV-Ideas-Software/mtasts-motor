@@ -4,10 +4,9 @@
 
 ### Changed
 
-- Declare Wrangler with the exact pin `4.130.0` instead of the `^4.130.0` range,
-  regenerate the lockfile with npm (the installed version is unchanged) and align
-  the third-party inventory row. This standardizes the manifest with the rest of
-  the fleet now that Deploy uses the lockfile Wrangler (MTASTS-20 / #226, GIT-230).
+- Update the exact Wrangler pin to `4.136.1`, regenerate the lockfile with npm,
+  remove redundant Miniflare/Sharp overrides and refresh the tooling inventory
+  from the resulting manifests and lockfile (LCV-213).
 - Schedule Dependabot version updates every day, including weekends, at 05:00
   in the fixed UTC-03:00 time zone and group security updates per ecosystem.
   Preserve the existing version-update groups, cooldown and compatibility ignore.
@@ -16,8 +15,8 @@
 
 ### Fixed
 
-- Align the Workers types inventory range with version 5.20260907.1 already
-  recorded in the package manifest and lockfile.
+- Align the Workers types inventory range with the current package manifest
+  and lockfile.
 
 - Synchronize the maintained third-party inventory with the already-merged
   Biome, ESLint, Workers types, Vitest and Wrangler development updates, including the
@@ -39,9 +38,8 @@
   native Dependency Review does not generate or automatically maintain notices.
 - Added repository-local inbound rights and aligned current contributor/agent
   guidance with the operator's no-controller, no-merge-queue reform standard.
-- Updated the existing development-only `sharp` override to 0.35.4 and its
-  official npm lockfile entries; no Wrangler or product dependency upgrade.
-  Refreshed the maintained third-party tooling snapshot after these changes.
+- The official Miniflare dependency graph now supplies the patched Sharp and
+  Undici versions directly; the remaining tooling overrides retain their scope.
 
 Publication and any repository settings changes require the operator's approval
 of the complete preparation report. No release tag or npm package is introduced.
