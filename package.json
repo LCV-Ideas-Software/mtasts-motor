@@ -29,7 +29,7 @@
     "format:public:check": "prettier --check \"**/index.html\""
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.13",
+    "@biomejs/biome": "^2.5.14",
     "@cloudflare/workers-types": "^5.20260915.1",
     "@eslint/js": "^10.0.1",
     "eslint": "^10.10.0",
@@ -38,7 +38,7 @@
     "prettier": "^3.9.6",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0",
-    "vitest": "^5.0.0",
+    "vitest": "^5.0.1",
     "wrangler": "4.136.2"
   },
   "overrides": {
