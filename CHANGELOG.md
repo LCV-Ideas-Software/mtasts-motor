@@ -4,6 +4,9 @@
 
 ### Changed
 
+- Update the exact Wrangler pin to `4.142.0`, regenerate the npm lockfile and
+  refresh the direct dependency inventory (MTASTS-21, LCV-239).
+
 - Update the exact Wrangler pin to `4.137.0`, regenerate the lockfile with npm,
   remove redundant Miniflare/Sharp overrides and refresh the tooling inventory
   from the resulting manifests and lockfile (LCV-214).
