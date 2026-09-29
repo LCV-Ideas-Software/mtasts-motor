@@ -7,8 +7,8 @@
 - Pin the official Cloudflare Wrangler Action to v4.1.2 after the v4.1.1 tag
   omitted its compiled `dist/index.mjs` entrypoint (LCV-241).
 
-- Update the exact Wrangler pin to `4.142.0`, regenerate the npm lockfile and
-  refresh the direct dependency inventory (MTASTS-21, LCV-239).
+- Update the exact Wrangler pin to `4.143.0`, regenerate the npm lockfile and
+  refresh the direct dependency inventory (MTASTS-21, LCV-239, LCV-241).
 
 - Update the exact Wrangler pin to `4.137.0`, regenerate the lockfile with npm,
   remove redundant Miniflare/Sharp overrides and refresh the tooling inventory
