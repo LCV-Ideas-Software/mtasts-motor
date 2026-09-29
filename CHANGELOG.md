@@ -21,6 +21,11 @@
 
 ### Fixed
 
+- Temporarily override Miniflare's transitive Undici dependency from 7.29.0
+  to 7.29.1 with native npm resolution and regenerate the lockfile while
+  upstream still pins the affected version (LCV-241). This changes development
+  tooling only; no dependency is bundled into the Worker.
+
 - Align the Workers types inventory range with the current package manifest
   and lockfile.
 
