@@ -21,6 +21,9 @@
 
 ### Fixed
 
+- Update the transitive `brace-expansion` lockfile entry to `5.0.12` to resolve
+  the Dependabot and Scorecard vulnerability findings (LCV-244).
+
 - Temporarily override Miniflare's transitive `undici@7.29.0` dependency
   to 7.29.1 with native npm resolution and regenerate the lockfile while
   upstream still pins the affected version (LCV-241). This changes development
