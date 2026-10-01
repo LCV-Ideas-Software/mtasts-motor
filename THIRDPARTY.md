@@ -29,17 +29,17 @@ license terms. The deployed Worker contains only this project's source.
 
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
-| @biomejs/biome            | ^2.5.13       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
+| @biomejs/biome            | ^2.5.14       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
 | @cloudflare/workers-types | ^5.20260915.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
-| eslint                    | ^10.10.0      | MIT               | https://registry.npmjs.org/eslint                    |
+| eslint                    | ^10.11.0      | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
 | globals                   | ^17.12.0      | MIT               | https://registry.npmjs.org/globals                   |
-| prettier                  | ^3.9.6        | MIT               | https://registry.npmjs.org/prettier                  |
+| prettier                  | ^3.9.9        | MIT               | https://registry.npmjs.org/prettier                  |
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
-| typescript-eslint         | ^8.70.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
-| vitest                    | ^5.0.0        | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | 4.143.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| typescript-eslint         | ^8.70.1       | MIT               | https://registry.npmjs.org/typescript-eslint         |
+| vitest                    | ^5.0.1        | MIT               | https://registry.npmjs.org/vitest                    |
+| wrangler                  | 4.145.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
 
@@ -51,8 +51,9 @@ npm sbom --sbom-format cyclonedx
 
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
-This is a maintained snapshot, updated on 22/09/2026 after the development-only
-Wrangler update and removal of redundant Miniflare/Sharp overrides. The current lockfile contains
+This is a maintained snapshot, updated on 01/10/2026 after the development-only
+Wrangler 4.145.0 update and removal of the redundant Miniflare Undici override
+(LCV-256). The current lockfile contains
 253 packages, including 162 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.
