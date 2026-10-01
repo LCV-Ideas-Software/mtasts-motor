@@ -51,8 +51,9 @@ npm sbom --sbom-format cyclonedx
 
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
-This is a maintained snapshot, updated on 22/09/2026 after the development-only
-Wrangler update and removal of redundant Miniflare/Sharp overrides. The current lockfile contains
+This is a maintained snapshot, updated on 01/10/2026 after the development-only
+Wrangler 4.145.0 update and removal of the redundant Miniflare Undici override
+(LCV-256). The current lockfile contains
 253 packages, including 162 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.
