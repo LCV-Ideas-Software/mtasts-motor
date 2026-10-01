@@ -29,16 +29,16 @@ license terms. The deployed Worker contains only this project's source.
 
 | Package                   | Version       | License           | Origin                                               |
 | ------------------------- | ------------- | ----------------- | ---------------------------------------------------- |
-| @biomejs/biome            | ^2.5.13       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
+| @biomejs/biome            | ^2.5.14       | MIT OR Apache-2.0 | https://registry.npmjs.org/@biomejs/biome            |
 | @cloudflare/workers-types | ^5.20260915.1 | MIT OR Apache-2.0 | https://registry.npmjs.org/@cloudflare/workers-types |
 | @eslint/js                | ^10.0.1       | MIT               | https://registry.npmjs.org/@eslint/js                |
-| eslint                    | ^10.10.0      | MIT               | https://registry.npmjs.org/eslint                    |
+| eslint                    | ^10.11.0      | MIT               | https://registry.npmjs.org/eslint                    |
 | eslint-config-prettier    | ^10.1.8       | MIT               | https://registry.npmjs.org/eslint-config-prettier    |
 | globals                   | ^17.12.0      | MIT               | https://registry.npmjs.org/globals                   |
-| prettier                  | ^3.9.6        | MIT               | https://registry.npmjs.org/prettier                  |
+| prettier                  | ^3.9.9        | MIT               | https://registry.npmjs.org/prettier                  |
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
-| typescript-eslint         | ^8.70.0       | MIT               | https://registry.npmjs.org/typescript-eslint         |
-| vitest                    | ^5.0.0        | MIT               | https://registry.npmjs.org/vitest                    |
+| typescript-eslint         | ^8.70.1       | MIT               | https://registry.npmjs.org/typescript-eslint         |
+| vitest                    | ^5.0.1        | MIT               | https://registry.npmjs.org/vitest                    |
 | wrangler                  | 4.145.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:

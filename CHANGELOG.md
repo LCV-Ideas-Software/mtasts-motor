@@ -4,6 +4,9 @@
 
 ### Changed
 
+- Reconcile all 11 direct tooling inventory rows with the current manifest;
+  preserve the verified 253-package lock and license metadata totals.
+
 - Update the pinned Cloudflare Wrangler CLI to 4.145.0 and regenerate npm dependency locks.
 
 - Pin the official Cloudflare Wrangler Action to v4.1.2 after the v4.1.1 tag
