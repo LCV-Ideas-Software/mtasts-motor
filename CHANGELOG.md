@@ -9,8 +9,8 @@
 
 - Update the pinned Cloudflare Wrangler CLI to 4.145.0 and regenerate npm dependency locks.
 
-- Pin the official Cloudflare Wrangler Action to v4.1.2 after the v4.1.1 tag
-  omitted its compiled `dist/index.mjs` entrypoint (LCV-241).
+- Pin the official Cloudflare Wrangler Action to its compiled v4.1.3 release
+  commit and document its exact license provenance (MTASTS-24, PR #254).
 
 - Update the exact Wrangler pin to `4.143.0`, regenerate the npm lockfile and
   refresh the direct dependency inventory (MTASTS-21, LCV-239, LCV-241).
