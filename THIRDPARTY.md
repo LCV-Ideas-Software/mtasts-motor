@@ -57,3 +57,18 @@ Wrangler 4.145.0 update and removal of the redundant Miniflare Undici override
 253 packages, including 162 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.
+
+## GitHub Actions deployment tooling
+
+The official `cloudflare/wrangler-action` v4.1.3 is pinned to
+`953926a2e2182532811c01a25e53647d93bf07c0` in
+`.github/workflows/deploy.yml`. Its exact release source declares
+`MIT OR Apache-2.0` and includes both complete legal texts:
+[MIT](https://github.com/cloudflare/wrangler-action/blob/953926a2e2182532811c01a25e53647d93bf07c0/LICENSE-MIT)
+and
+[Apache-2.0](https://github.com/cloudflare/wrangler-action/blob/953926a2e2182532811c01a25e53647d93bf07c0/LICENSE-APACHE).
+
+The compiled `dist/index.mjs` entrypoint is present in that release commit.
+The Action runs in GitHub Actions and is not part of the Worker bundle.
+The deployment omits `wranglerVersion`, so the Action reuses Wrangler 4.145.0
+installed from this repository's unchanged npm lockfile.
