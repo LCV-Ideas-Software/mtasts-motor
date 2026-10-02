@@ -39,7 +39,7 @@ license terms. The deployed Worker contains only this project's source.
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
 | typescript-eslint         | ^8.70.1       | MIT               | https://registry.npmjs.org/typescript-eslint         |
 | vitest                    | ^5.0.1        | MIT               | https://registry.npmjs.org/vitest                    |
-| wrangler                  | 4.145.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
+| wrangler                  | 4.147.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
 
@@ -51,9 +51,8 @@ npm sbom --sbom-format cyclonedx
 
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
-This is a maintained snapshot, updated on 01/10/2026 after the development-only
-Wrangler 4.145.0 update and removal of the redundant Miniflare Undici override
-(LCV-256). The current lockfile contains
+This is a maintained snapshot, updated on 02/10/2026 after the development-only
+Wrangler 4.147.0 update (LCV-272). The current lockfile contains
 253 packages, including 162 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.
@@ -70,5 +69,5 @@ and
 
 The compiled `dist/index.mjs` entrypoint is present in that release commit.
 The Action runs in GitHub Actions and is not part of the Worker bundle.
-The deployment omits `wranglerVersion`, so the Action reuses Wrangler 4.145.0
-installed from this repository's unchanged npm lockfile.
+The deployment omits `wranglerVersion`, so the Action reuses Wrangler 4.147.0
+installed from this repository's npm lockfile.

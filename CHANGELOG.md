@@ -7,7 +7,7 @@
 - Reconcile all 11 direct tooling inventory rows with the current manifest;
   preserve the verified 253-package lock and license metadata totals.
 
-- Update the pinned Cloudflare Wrangler CLI to 4.145.0 and regenerate npm dependency locks.
+- Update the pinned Cloudflare Wrangler CLI to 4.147.0 and regenerate npm dependency locks.
 
 - Pin the official Cloudflare Wrangler Action to its compiled v4.1.3 release
   commit and document its exact license provenance (MTASTS-24, PR #254).
@@ -30,7 +30,7 @@
   the Dependabot and Scorecard vulnerability findings (LCV-244).
 
 - Remove the temporary Miniflare Undici override introduced in LCV-241.
-  Wrangler 4.145.0 now selects official Miniflare with patched Undici 7.29.1
+  Wrangler 4.147.0 now selects official Miniflare with patched Undici 7.29.1
   directly (LCV-256). This changes development tooling only; no dependency
   is bundled into the Worker.
 
