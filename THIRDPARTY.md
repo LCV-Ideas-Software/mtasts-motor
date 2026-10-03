@@ -1,17 +1,17 @@
 # Third-Party Components
 
-`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (253 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
+`mtasts-motor` is a Cloudflare Worker with **zero runtime dependencies**. The lockfile entries (251 packages) are transitive devDependencies of the development toolchain only — they do NOT ship in the deployed Worker bundle.
 
-## License inventory (lockfile, 253 packages — devDeps transitive only)
+## License inventory (lockfile, 251 packages — devDeps transitive only)
 
 | License                                  | Count |
 | ---------------------------------------- | ----: |
-| MIT                                      |   162 |
+| MIT                                      |   161 |
 | Apache-2.0                               |    34 |
 | MIT OR Apache-2.0                        |    13 |
 | MPL-2.0                                  |    12 |
 | LGPL-3.0-or-later                        |    10 |
-| ISC                                      |     7 |
+| ISC                                      |     6 |
 | BSD-2-Clause                             |     6 |
 | Apache-2.0 AND LGPL-3.0-or-later         |     3 |
 | BSD-3-Clause                             |     2 |
@@ -38,7 +38,7 @@ license terms. The deployed Worker contains only this project's source.
 | prettier                  | ^3.9.9        | MIT               | https://registry.npmjs.org/prettier                  |
 | typescript                | ^6.0.3        | Apache-2.0        | https://registry.npmjs.org/typescript                |
 | typescript-eslint         | ^8.70.1       | MIT               | https://registry.npmjs.org/typescript-eslint         |
-| vitest                    | ^5.0.1        | MIT               | https://registry.npmjs.org/vitest                    |
+| vitest                    | ^5.0.3        | MIT               | https://registry.npmjs.org/vitest                    |
 | wrangler                  | 4.147.0       | MIT OR Apache-2.0 | https://registry.npmjs.org/wrangler                  |
 
 For an exhaustive package-by-package inventory, run:
@@ -52,8 +52,8 @@ npm sbom --sbom-format cyclonedx
 `package-lock.json` in the repo root is the authoritative source for all transitive dependencies and their resolved versions.
 
 This is a maintained snapshot, updated on 02/10/2026 after the development-only
-Wrangler 4.147.0 update (LCV-272). The current lockfile contains
-253 packages, including 162 with MIT metadata. Native Dependency Review and npm
+Vitest 5.0.3 update (LCV-183 / LCV-211). Wrangler remains 4.147.0. The current lockfile contains
+251 packages, including 161 with MIT metadata. Native Dependency Review and npm
 SBOM metadata do not replace license texts or automatically update this document.
 Review the snapshot when the tooling or distribution changes.
 
@@ -71,3 +71,7 @@ The compiled `dist/index.mjs` entrypoint is present in that release commit.
 The Action runs in GitHub Actions and is not part of the Worker bundle.
 The deployment omits `wranglerVersion`, so the Action reuses Wrangler 4.147.0
 installed from this repository's npm lockfile.
+
+## Atualização documental — 02/10/2026 (LCV-183 / LCV-211)
+
+O Vitest 5.0.3 seleciona `why-is-node-running` 3.2.1, cuja publicação oficial não depende de `stackback`. A árvore exata permanece nos lockfiles regenerados pelo npm. Fonte: https://github.com/vitest-dev/vitest/pull/11316 e https://github.com/vitest-dev/vitest/releases/tag/v5.0.3. Esta atualização de ferramenta de teste não afirma incorporação no produto distribuído.
