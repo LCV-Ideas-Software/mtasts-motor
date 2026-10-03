@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+- Atualizado o Vitest para 5.0.3, que seleciona o `why-is-node-running` oficial 3.2.1 sem `stackback`; manifestos e lockfiles regenerados pelo npm.
+
 ### Changed
 
 - Reconcile all 11 direct tooling inventory rows with the current manifest;
